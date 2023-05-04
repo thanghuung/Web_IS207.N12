@@ -1,0 +1,184 @@
+﻿@model IEnumerable<WEB2.Models.OrderDetail>
+
+@{
+    ViewData["Title"] = "BillDetails";
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Thông tin chi tiết</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Quản lý bán hàng</a></li>
+                    <li class="breadcrumb-item active"><a asp-action="Index">Hóa đơn</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Chi tiết</a></li>
+                </ol>
+            </div>
+        </div>
+                           @{
+            int orderid = 0;
+            string status = "";
+            string color = "";
+            string color_can = "btn btn-danger";
+            string text_can = "Hủy";
+        }
+        <!-- row -->
+
+          <dl class="row">
+    
+        @foreach (var item in Model) {
+          
+                orderid = item.OrderId;
+                status = item.Order.TransactStatus;
+                <dt class="col-sm-2">
+                    Mã số đơn hàng
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.OrderId)
+                </dd>
+                <dt class="col-sm-2">
+                    Mã giao dịch
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Order.TransactionNo)
+                </dd>
+                 <dt class="col-sm-2">
+                    Mã kho hàng
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Order.InventoryId)
+                </dd>
+                <dt class="col-sm-2">
+                    Voucher giảm giá
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Order.Customer.Voucher_Details)
+                </dd>
+                <dt class="col-sm-2">
+                    Tổng tiền
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Order.Paid)
+                </dd>
+                <dt class="col-sm-2">
+                    Ngày tạo
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Order.OrderDay)
+                </dd>
+                <dt class="col-sm-2">
+                    Đơn vị vận chuyển
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Order.Shipment.CompanyName)
+                </dd>
+                <dt class="col-sm-2">
+                    Phương thức thanh toán
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Order.Payment.PaymentType)
+                </dd>
+                <dt class="col-sm-2">
+                    Tình trạng đơn hàng
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Order.TransactStatus)
+                </dd>
+                if (status.Equals("shipping")) {
+                    status = "thanh toán";
+                    color = "btn btn-outline-success";
+                }
+
+                if (status.Equals("paid") || status.Equals("pay by cash")) {
+                    status = "duyệt đơn";
+                    color = "btn btn-outline-info";
+                }
+
+                if (status.Equals("accept")) {
+                    status = "vận chuyển";
+                    color = "btn btn-outline-secondary";
+
+                }
+                if (status.Equals("done")) {
+                    status = "";
+                    color = "";
+                    color_can = "";
+                    text_can = "";
+                }
+                
+                break;
+            
+        }
+        </dl>
+        <table id="example" class="display" style="min-width: 845px">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Sản phẩm
+                    </th>
+                    <th>
+                        Số lượng
+                    </th>
+
+                    <th>Đơn giá</th>
+                    <th>
+                        Khuyến mãi sản phẩm
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+
+                        <td>
+                            <img src="@Html.DisplayFor(modelItem => item.Product.Picture)" style="width: 96px; height: 96px ;max-width: 96px;max-height: 96px" />
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.ProductName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Discount)
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+            </table>
+
+    </div>
+    <br />
+    <br />
+    <div class= "container-fluid">
+        <a asp-action="Accept_O" class="@color" asp-route-id="@orderid">@status</a>
+        <a asp-action="Product" class="btn btn-outline-dark ">Trở về</a>
+        <a asp-action="BillDel_O" class="@color_can" asp-route-id="@orderid">@text_can</a>   
+    </div>
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+</body>
+
+
+

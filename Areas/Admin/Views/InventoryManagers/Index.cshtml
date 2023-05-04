@@ -1,0 +1,164 @@
+﻿@model IEnumerable<WEB2.Models.Inventory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2-8b246ZDWB2uasjQfhWA4DCc2p04tTw&callback=myMap"></script>
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+@*                    <li class="breadcrumb-item"><a href="javascript:void(0)">quản lý kho hàng</a></li>*@
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Quản lý hàng</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Kho vận</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var item in Model) {
+                <div class="col-xl-4 col-xxl-6 col-lg-6 col-sm-6">
+                    <div class="card mb-3">
+                        <div id="@item.InventoryId" style="width:100%;height:250px"></div>
+                        <script type="text/javascript">
+                             var mapCanvas = document.getElementById("@item.InventoryId");
+                             var inven = [];
+                            @foreach (var position in Model) {
+                                <text>inven.push(new google.maps.LatLng(@position.Latitude, @position.Longitude));</text>
+                            }
+
+                             var mapOptions = {
+                                 center: new google.maps.LatLng(@item.Latitude, @item.Longitude),
+                                 zoom: 16,
+                                 mapTypeId: google.maps.MapTypeId.ROADMAP
+                             };
+                             var map = new google.maps.Map(mapCanvas, mapOptions);
+                             for(let i = 0; i < inven.length; ++i){
+                                var marker = new google.maps.Marker({ position: inven[i] });
+                             marker.setMap(map);
+                             }
+
+
+                        </script>
+
+                        <div class="card-header">
+                            <h5 class="card-title"> @Html.DisplayFor(modelItem => item.Name)</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                @Html.DisplayFor(modelItem => item.Adress)
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <p class="card-text d-inline text-danger"> @Html.DisplayFor(modelItem => item.City)</p>
+                            <a asp-action="InvenDetails" asp-route-id="@item.InventoryId" class="card-link float-right btn btn-outline-primary">Chi tiết kho hàng</a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+    
+            <div class="col-xl-4 col-xxl-6 col-lg-6 col-sm-6">
+                    <div class="card mb-3 container-fluid">
+                       <form asp-action="Create">
+                  
+                    @foreach (var item in Model) {
+
+                        <div class="form-group">
+                            <label class="control-label">Nhập tên kho</label>
+                            <input id="name" class="form-control" />
+                            <span asp-validation-for="@item.Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Địa chỉ</label>
+                            <input id="address" class="form-control" />
+                            <span asp-validation-for="@item.Adress" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Tên thành phố</label>
+                            <input id="city" class="form-control" />
+                            <span asp-validation-for="@item.City" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Nhập kinh tuyến</label>
+                            <input id="lat" class="form-control" />
+                            <span asp-validation-for="@item.Latitude" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Nhập vĩ tuyến</label>
+                            <input id="lon" class="form-control" />
+                            <span asp-validation-for="@item.Longitude" class="text-danger"></span>
+                        </div>
+
+                        break;
+                    }
+
+                       <btn class="card-link float-right btn btn-success" id = "butn"> Tạo</btn>
+
+                    <script type="text/javascript">
+                
+                        $('#butn').click(function(){
+                                   
+                        var name = $('#name').val();
+                        var adress = $('#address').val();
+                        var city = $('#city').val();
+                        var lat = $('#lat').val();
+                        var lon = $('#lon').val();
+                        var model = new Object();
+                        model.Name = name;
+                        model.Adress = adress;
+                        model.City = city;
+                        model.Latitude = lat;
+                        model.Longitude = lon;
+                        console.log(model);
+                        jQuery.ajax({
+                        type: "POST",
+                        url: "@Url.Action("Create","InventoryManagers")",
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify( model ),
+                        processData: true,
+                               cache: false,
+                        }).done(function(data){
+                            alert("Thêm kho hàng thành công");
+                            window.location.replace(data.newUrl);
+                        });
+                    });
+                   
+                    </script>
+                </form>    
+                    </div>
+             
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+</body>
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

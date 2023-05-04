@@ -1,0 +1,29 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout)) {
+        Layout = (string)parentLayout;
+    }
+    else {
+        Layout = "/Views/Shared/_Layout.cshtml";
+    }
+}
+@section Styles {
+    <link href="@Url.Content("/css/areas/identity/pages/accounts/manage/_layout.css")" rel="stylesheet" type="text/css" />
+}
+<div id="mininav">
+    <div id="managetk" style="display:inline-block" >
+        <a asp-area="Identity" asp-page="/Account/Manage/Index"><h5>Quản lý tài khoản</h5></a>
+    </div>
+    <div style="display:inline-block" class="ml-4" id="history">
+        <a asp-area="Identity" asp-page="/Account/Manage/Bill"><h5>Lịch sử mua hàng</h5></a>
+    </div>
+</div>
+<div>
+        <div>
+            <div class="mt-3">
+                @RenderBody()
+            </div>
+        </div>
+</div>
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

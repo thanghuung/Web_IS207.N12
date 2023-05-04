@@ -1,0 +1,223 @@
+﻿@model WEB2.Models.Order
+
+@{
+    ViewData["Title"] = "Cập nhật địa chỉ";
+}
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <select id="tinh">
+        Chọn tỉnh
+        <option> TP Hồ Chí Minh</option>
+        <option> Hà Nội</option>
+        <option> Đà Nẵng</option>
+        <option> Hải Phòng</option>
+        <option> Hà Giang</option>
+        <option>Cao Bằng</option>
+        <option>Lai Châu</option>
+        <option>Tuyên Quang</option>
+        <option>Lạng Sơn</option>
+        <option>Bắc Kạn</option>
+        <option>Thái Nguyên</option>
+        <option>Yên Bái</option>
+        <option>Sơn La</option>
+        <option>Phú Thọ</option>
+        <option>Vĩnh Phúc</option>
+        <option>Quảng Ninh</option>
+        <option>Bắc Giang</option>
+        <option>Bắc Ninh</option>
+        <option>Hải Dương</option>
+        <option>Hưng Yên</option>
+        <option>Hòa Bình</option>
+        <option>Hà Nam</option>
+        <option>Nam Định</option>
+        <option>Thái Bình</option>
+        <option>Ninh Bình</option>
+        <option>Thanh Hóa</option>
+        <option>Nghệ An</option>
+        <option>Hà Tĩnh</option>
+        <option>Quảng Bình</option>
+        <option>Quảng trị</option>
+        <option>Thừa Thiên Huế</option>
+        <option>Quảng Nam</option>
+        <option>Quảng Ngãi</option>
+        <option>Kontum</option>
+        <option>Bình Định</option>
+        <option>Gia Lai</option>
+        <option>Phú Yên</option>
+        <option>Đắk Lắk</option>
+        <option>Khánh Hòa</option>
+        <option>Lâm Đồng</option>
+        <option>Bình Phước</option>
+        <option>Bình Dương</option>
+        <option>Ninh Thuận</option>
+        <option>Tây Ninh</option>
+        <option>Bình Thuận</option>
+        <option>Đồng Nai</option>
+        <option>Long An</option>
+        <option>Đồng Tháp</option>
+        <option>An Giang</option>
+        <option>Bà Rịa – VT</option>
+        <option>An Giang</option>
+        <option>Tiền Giang</option>
+        <option>Kiên Giang</option>
+        <option>Cần Thơ</option>
+        <option>Bến Tre</option>
+        <option>Vĩnh Long</option>
+        <option>Trà Vinh</option>
+        <option>Sóc Trăng</option>
+        <option>Bạc Liêu</option>
+        <option>Cà Mau</option>
+        <option>Điện Biên</option>
+        <option>Đắk Nông</option>
+        <option>Hậu Giang</option>
+    </select>
+    <select id="huyen">
+        Chọn huyện
+    </select>
+    <label class="text-label">Địa chỉ giao hàng</label>
+    <input id="shipadd" type="text" name="place" class="form-control" required>
+    <button id="sub">Cập nhật</button>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+          var tinh = "TP Hồ Chí Minh";
+          if (tinh == "TP Hồ Chí Minh") {
+            $("#huyen").append(`
+                      <option>Quận 1</option>
+                      <option>Quận 12</option>
+                      <option>Quận Thủ Đức </option>
+                      <option>Quận 9</option>
+                      <option>Quận Gò Vấp</option>
+                      <option>Quận Bình Thạnh</option>
+                      <option>Quận Tân Bình</option>
+                      <option>Quận Tân Phú</option>
+                      <option>Quận Phú Nhuận</option>
+                      <option>Quận 2</option>
+                      <option>Quận 3</option>
+                      <option>Quận 10</option>
+                      <option>Quận 11</option>
+                      <option>Quận 4</option>
+                      <option>Quận 5</option>
+                      <option>Quận 6</option>
+                      <option>Quận 8</option>
+                      <option>Quận Bình Tân</option>
+                      <option>Quận 7</option>
+                      <option>Quận Củ Chi</option>
+                      <option>Quận Hóc Môn</option>
+                      <option>Quận Bình Chánh</option>
+                      <option>Quận Nhà Bè</option>
+                      <option>Quận Cần Giờ</option>
+                    `);
+          }
+          $("#tinh").change(function () {
+            tinh = $(this).val();
+            if (tinh == "TP Hồ Chí Minh") {
+              $("#huyen").children().remove();
+              $("#huyen").append(`
+                      <option>Quận 1</option>
+                      <option>Quận 12</option>
+                      <option>Quận Thủ Đức </option>
+                      <option>Quận 9</option>
+                      <option>Quận Gò Vấp</option>
+                      <option>Quận Bình Thạnh</option>
+                      <option>Quận Tân Bình</option>
+                      <option>Quận Tân Phú</option>
+                      <option>Quận Phú Nhuận</option>
+                      <option>Quận 2</option>
+                      <option>Quận 3</option>
+                      <option>Quận 10</option>
+                      <option>Quận 11</option>
+                      <option>Quận 4</option>
+                      <option>Quận 5</option>
+                      <option>Quận 6</option>
+                      <option>Quận 8</option>
+                      <option>Quận Bình Tân</option>
+                      <option>Quận 7</option>
+                      <option>Quận Củ Chi</option>
+                      <option>Quận Hóc Môn</option>
+                      <option>Quận Bình Chánh</option>
+                      <option>Quận Nhà Bè</option>
+                      <option>Quận Cần Giờ</option>
+                    `);
+            } else if (tinh == "Hà Nội") {
+              $("#huyen").children().remove();
+              $("#huyen").append(`
+                    <option>Quận Ba Đình</option>
+                    <option>Quận Hoàn Kiếm</option>
+                    <option>Quận Tây Hồ</option>
+                    <option>Quận Long Biên</option>
+                    <option>Quận Cầu Giấy</option>
+                    <option>Quận Đống Đa</option>
+                    <option>Quận Hai Bà Trưng</option>
+                    <option>Quận Hoàng Mai</option>
+                    <option>Huyện Thanh Xuân</option>
+                    <option>Quận Sóc Sơn</option>
+                    <option>Huyện Đông Anh</option>
+                    <option>Huyện Gia Lâm</option>
+                    <option>Quận Nam Từ Liêm</option>
+                    <option>Huyện Thanh Trì</option>
+                    <option>Quận Bắc Từ Liêm</option>
+                    <option>Huyện Mê Linh</option>
+                    <option>Quận Hà Đông</option>
+                    <option>Huyện Ba Vì</option>
+                    <option>Huyện Phúc Thọ</option>
+                    <option>Huyện Đan Phượng</option>
+                    <option>Huyện Hoài Đức</option>
+                    <option>Huyện Quốc Oai</option>
+                    <option>Huyện Thạch Thất</option>
+                    <option>Huyện Chương Mỹ</option>
+                    <option>Huyện Thanh Oai</option>
+                    <option>Huyện Thường Tín</option>
+                    <option>Huyện Phú Xuyên</option>
+                    <option>Huyện Ứng Hòa</option>
+                    <option>Huyện Mỹ Đức</option>
+                    `);
+            }
+          });
+          $("#sub").click(function () {
+            var tinh = $("#tinh").val();
+            var huyen = $('#huyen').val();
+            var add = $('#shipadd').val();
+            var model = new Object();
+            model.CustomerID = @Model.CustomerId;
+            model.OrderId = @Model.OrderId;
+            model.City = tinh;
+            model.State = huyen;
+            model.ShipAddress = add;
+            console.log(model);
+            jQuery
+              .ajax({
+                type: "POST",
+                 url: "@Url.Action("ShipAddress","OrderDetails")",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(model),
+                processData: true,
+                cache: false,
+              })
+              .done(function (data) {
+                alert("Cập nhật địa chỉ thành công");
+                window.location.replace(data.newUrl);
+              });
+          });
+        });
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

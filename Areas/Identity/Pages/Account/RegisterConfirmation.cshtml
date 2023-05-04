@@ -1,0 +1,14 @@
+﻿@page "/RegisterConfirmation/"
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Xác nhận đăng ký";
+}
+<main class="container" style="height: 57vh">
+    <div class="my-lg-3">
+        <h5>@ViewData["Title"]</h5>
+        <p>
+            Một email đã gửi đến cho bạn, bạn cần mở email làm theo hướng dẫn trong email sau đó
+            <a href="@Model.UrlContinue">Bấm vào đây để tiếp tục</a>
+        </p>
+    </div>
+</main>

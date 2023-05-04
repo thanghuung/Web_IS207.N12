@@ -1,0 +1,185 @@
+﻿@model IEnumerable<WEB2.Models.PurchaseDetail>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Thông tin chi tiết</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Quản lý mua hàng</a></li>
+                    <li class="breadcrumb-item active"><a asp-action="Index">Hóa đơn</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Chi tiết</a></li>
+                </ol>
+            </div>
+        </div>
+        @{
+            int purid = 0;
+            string status = "";
+            string color = "";
+            string color_can = "btn btn-danger";
+            string text_can = "Hủy";
+        }
+        <!-- row -->
+
+        <dl class="row card">
+
+            @foreach (var item in Model) {
+
+                purid = item.PurchaseId;
+                status = item.Purchase.TransactStatus;
+                <dt class="col-sm-2">
+                    Mã số đơn hàng
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.PurchaseId)
+                </dd>
+
+                <dt class="col-sm-2">
+                    Mã nhân viên
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Purchase.Staff.StaffId)
+                </dd>
+                <dt class="col-sm-2">
+                    Nhân viên
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Purchase.Staff.AppUser.FullName)
+                </dd>
+                <dt class="col-sm-2">
+                    Mã giao dịch
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Purchase.TransactionNo)
+                </dd>
+
+                <dt class="col-sm-2">
+                    Tổng tiền
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Purchase.Paid)
+                </dd>
+                <dt class="col-sm-2">
+                    Ngày tạo
+                </dt>
+           
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Purchase.PurchaseDay)
+                </dd>
+                 <dt class="col-sm-2">
+                    Ngày thanh toán
+                </dt>
+           
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Purchase.PaymentDate)
+                </dd>
+                <dt class="col-sm-2">
+                    Tình trạng đơn hàng
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => item.Purchase.TransactStatus)
+                </dd>
+                if (status.Equals("saved")) {
+                    status = "gửi yêu cầu";
+                    color = "btn btn-outline-info";
+                }
+
+
+                if (status.Equals("sent")) {
+                    status = "nhận hàng";
+                    color = "btn btn-outline-success";
+
+                }
+                if (status.Equals("sent")) {
+                    status = "nhận hàng";
+                    color = "btn btn-outline-secondary";
+
+                }
+                if (status.Equals("receive")) {
+                    status = "thanh toán";
+                    color = "btn btn-outline-success";
+
+                }
+                if (status.Equals("done")) {
+                    status = "";
+                    color = "";
+                    color_can = "";
+                    text_can = "";
+                }
+           
+
+                break;
+
+            }
+        </dl>
+        <table id="example" class="display" style="min-width: 845px">
+            <thead>
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        Sản phẩm
+                    </th>
+                    <th>
+                        Số lượng
+                    </th>
+
+                    <th>Đơn giá</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+
+                        <td>
+                            <img src="@Html.DisplayFor(modelItem => item.Product.Picture)" style="width: 96px; height: 96px ;max-width: 96px;max-height: 96px" />
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.ProductName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>
+    <br />
+    <br />
+    <div class="container-fluid">
+        <a asp-action="Accept_R" class="@color" asp-route-id="@purid">@status</a>
+        <a asp-action="Receipt" class="btn btn-outline-dark ">Trở về</a>
+        <a asp-action="Delete_R" class="@color_can" asp-route-id="@purid">@text_can</a>
+    </div>
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+</body>
+
+
+

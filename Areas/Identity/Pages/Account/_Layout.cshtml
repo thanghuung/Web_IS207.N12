@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TechN</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="@Url.Content("/css/areas/identity/pages/_Layout.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/lib/jquery/dist/jquery.min.js")"></script>
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white topnav">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <p class="logo mb-0">Tech<span style="color: #be1e2d">N</span></p>
+                </a>
+                <h3 id="pagetitle">
+
+                </h3>
+            </div>
+        </nav>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer class="border-top footer text-muted " style="bottom: auto; position:absolute;">
+        <div class="container pt-4 pb-4">
+            <h6 style="color: white" class="mt-1">Công ty TNHH Thương mại TechN</h6>
+            <div class="row">
+                <div class="col-md-3 col-sm6 sub">
+                    <p>Thông tin</p>
+                    @*<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+                    <a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index">Giới thiệu</a>
+                    <a class="nav-item" asp-area="" asp-controller="Home" asp-action="Index"> Tuyển dụng</a>
+                </div>
+                <div class="col-md-3 col-sm6 sub">
+                    <p>Chính sách</p>
+                    @*<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+                    <a class="nav-item" href="/policy/#baohanh">Chính sách bảo hành</a>
+                    <a class="nav-item" href="/policy/#doitra">Chính sách đổi trả</a>
+                    <a class="nav-item" href="/policy/#vanchuyen">Chính sách vận chuyển</a>
+                    <a class="nav-item" href="/policy/#baomat">Chính sách bảo mật</a>
+                    <a class="nav-item" href="/policy/#tragop">Chính sách trả góp</a>
+                </div>
+                <div class="col-md-3 col-sm6 sub">
+                    <p>Liên hệ</p>
+                    @*<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+                    <a class="nav-item">Tư vấn mua hàng: <strong>1900.3030</strong></a>
+                    <a class="nav-item">Giải quyết khiếu nại: <strong>1900.3033</strong></a>
+                    <a class="nav-item">Dành cho đối tác: <strong>0366.485.663</strong></a>
+                </div>
+                <div class="col-md-3 col-sm-6 sub">
+                    <a class="nav-item"><img src="/img/index/bocongthuong.png" style="width: 60%; height: 60%" /></a>
+                    <br />
+                    <a class="nav-item"><img src="/img/index/paymethod.png" style="width: 60%; height: 60%" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="credit">
+            <div class="container">
+                <p>
+                   
+                    <br />Điện thoại: <strong>08.6815.0937</strong>. Email: windnight57@gmail.com
+                    <br /><br />Chịu trách nhiệm: Nguyễn Hữu Thắng
+                </p>
+            </div>
+        </div>
+    </footer>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

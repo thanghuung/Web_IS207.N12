@@ -1,0 +1,182 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    color: var(--font-color);
+    font-family: 'Poppins', sans-serif;
+}
+/*-- toggle switch --*/
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch-wrapper em {
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.theme-switch {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+/*-- //toggle switch --*/
+.mode-container {
+    width: 24px;
+    height: 24px;
+    padding: 0px 0;
+    color: var(--heading-color);
+}
+
+.mode-container:hover {
+    color: var(--heading-color);
+}
+
+.mode-container i {
+    font-size: 15px;
+}
+
+
+:root {
+    --theme-color: #e40000;
+    --primary-color: #fdb03d;
+    --primary-light: #fcf1e7;
+    --primary-dark: #ffc945;
+    --secondary-color: #292560;
+    --font-color: #707070;
+    --bg-color: #fff;
+    --heading-color: #060606;
+    --footer-color: #060e1f;
+    --footer-cpy-color: #040a17;
+    --border-radius: 30px;
+    --border-radius-full: 15px;
+    --border-color: transparent;
+    --border-color-light: #eee;
+    --iframe-filter: grayscale(0%);
+    --bg-grey: #f4f4f4;
+    --bg-light: #fafafa;
+    --bg-dark-color: #fff;
+    --quote-text-color: #1d2c4c;
+    --icon-gra-color: linear-gradient(75deg, #1c2e7b 10%, #e60264);
+    --shadow-color: rgb(0 0 0 / 3%);
+    --box-shadow: rgb(0 0 0 / 41%);
+    --iframe-filter: grayscale(0%);
+ }
+
+[data-theme="dark"] {
+    --theme-color: #e40000;
+    --primary-color: #fdb03d;
+    --primary-light: #ffc945;
+    --secondary-color: #292560;
+    --primary-dark: #00070c;
+    --font-color: #b7b7b7;
+    --bg-color: #222222;
+    --heading-color: #fdfffc;
+    --footer-color: #0e0e0e;
+    --footer-cpy-color: #060606;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --border-color-light: rgba(255, 255, 255, 0.2);
+    --iframe-filter: grayscale(100%);
+    --bg-grey: #0b0d0e;
+    --bg-light: #1b1818;
+    --bg-dark-color: #27282b;
+    --quote-text-color: #e6e6e6;
+    --icon-gra-color: #fff;
+    --shadow-color: rgb(23 19 19);
+    --box-shadow: rgb(13 7 7);
+    --iframe-filter: grayscale(100%);
+  }
+input[type="checkbox"] {
+    margin: 4px 4px 0 0;
+}
+.gg-sun {
+    position: relative;
+    transform: scale(var(--ggs, 1));
+    height: 24px;
+    background: linear-gradient(180deg, currentColor 4px, transparent 0) no-repeat 5px -6px/2px 6px, linear-gradient(180deg, currentColor 4px, transparent 0) no-repeat 5px 14px/2px 6px, linear-gradient(180deg, currentColor 4px, transparent 0) no-repeat -8px 5px/6px 2px, linear-gradient(180deg, currentColor 4px, transparent 0) no-repeat 14px 5px/6px 2px;
+    border-radius: 100px;
+    box-shadow: inset 0 0 0 2px;
+    border: 6px solid transparent;
+}
+.gg-sun,
+.gg-sun:after,
+.gg-sun:before {
+    box-sizing: border-box;
+    display: block;
+    width: 24px;
+}
+
+.gg-sun:after,
+.gg-sun:before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    border-right: 4px solid;
+    border-left: 4px solid;
+    left: -6px;
+    top: 5px;
+}
+
+.gg-sun:before {
+    transform: rotate(-45deg);
+}
+
+.gg-sun:after {
+    transform: rotate(45deg);
+}
+
+.mode-container i.gg-sun {
+    display: none;
+}
+input:checked+.mode-container i.gg-sun {
+    display: block;
+    cursor: pointer;
+}
+
+.gg-moon {
+    overflow: hidden;
+    position: relative;
+    transform: rotate(-135deg) scale(var(--ggs, 1));
+    width: 20px;
+    height: 20px;
+    border: 2px solid;
+    border-bottom: 2px solid transparent;
+}
+
+.gg-moon,
+.gg-moon:after {
+    display: block;
+    box-sizing: border-box;
+    border-radius: 50%;
+    /* color: #fff; */
+}
+
+.nav-fixed .gg-moon,
+.nav-fixed .gg-moon:after {
+    color: var(--heading-color);
+}
+
+.gg-moon:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    border: 2px solid transparent;
+    box-shadow: 0 0 0 2px;
+    top: 8px;
+    left: 2px;
+}
+.mode-container i.gg-moon {
+    display: block;
+    cursor: pointer;
+}
+input:checked+.mode-container i.gg-moon {
+    display: none;
+}

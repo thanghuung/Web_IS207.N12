@@ -1,0 +1,95 @@
+﻿@model WEB2.Models.Supplier
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<head>
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Thêm nhà cung cấp</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Quản lý sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a asp-action="Index">Nhà cung cấp</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Tạo mới</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- row -->
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="CompanyName" class="control-label"></label>
+                        <input asp-for="CompanyName" class="form-control" />
+                        <span asp-validation-for="CompanyName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ContactName" class="control-label"></label>
+                        <input asp-for="ContactName" class="form-control" />
+                        <span asp-validation-for="ContactName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address" class="control-label"></label>
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Phone" class="control-label"></label>
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+              
+      
+         
+         
+          
+                
+                    <div class="form-group">
+                        <label asp-for="URL" class="control-label"></label>
+                        <input asp-for="URL" class="form-control" />
+                        <span asp-validation-for="URL" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TypeGoods" class="control-label"></label>
+                        <input asp-for="TypeGoods" class="form-control" />
+                        <span asp-validation-for="TypeGoods" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Notes" class="control-label"></label>
+                        <input asp-for="Notes" class="form-control" />
+                        <span asp-validation-for="Notes" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                        <a asp-action="Index" class="btn btn-outline-dark">Trở về</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

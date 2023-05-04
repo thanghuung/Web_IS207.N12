@@ -1,0 +1,62 @@
+﻿body {
+}
+.chat-body {
+   box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px; 
+   border-radius: 10px;
+   border: 1px solid white; 
+   max-height: 500px; 
+   overflow-y:scroll; 
+   padding: 10px;
+   
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */    
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    .chat-body > div {
+        display: block !important;
+    }
+.message {
+    float: right;
+    background-color: #5883ff;
+    color: white;
+}
+.yourmess {
+    float: left !important;
+    background-color: #cccccc;
+}
+.message {
+    width: 60%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 30px;
+}
+.chat-input {
+    height: 190px;
+    margin-top: 20px;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+    border-radius: 10px;
+    border: 1px solid white;
+    padding: 20px;
+}
+.message-input {
+    border-radius: 20px !important;
+}
+button.mt-4{
+    border-radius: 20px;
+    float: right;
+}

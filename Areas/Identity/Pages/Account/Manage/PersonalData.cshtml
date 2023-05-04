@@ -1,0 +1,38 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Dữ liệu cá nhân";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+   <div class="row">
+        <div class="col-md-3">
+            <div>
+                <partial name="_ManageNav" />
+            </div>
+        </div>
+        <div  class="col-md-9">
+            <div>
+                    <h5 class="text-gray-800">@ViewData["Title"]</h5>
+                    @*<p>Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>*@
+                    <p>Bạn có thể tải về hoặc xóa dữ liệu đã cung cấp cho TechN</p>
+                    <p>
+                        @*<strong>Deleting this data will permanently remove your account, and this cannot be recovered.</strong>*@
+                        <strong>Lưu ý rằng việc xóa dữ liệu cũng sẽ xóa tài khoản khỏi hệ thống, hành động này không thể hoàn tác.</strong>
+                    </p>
+                    <p>Zerone cam kết chỉ sử dụng một phần dữ liệu của bạn để tối ưu hóa trải nghiệm mua sắm và điều chỉnh đề xuất quảng cáo với bên thứ ba. TechN không chia sẻ thông tin cá nhân cá nhân của bạn với mục đích kinh doanh bất hợp pháp hay bất kỳ mục đích nào khác.</p>
+                    <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit"><i class="bi bi-cloud-download-fill"></i> Tải xuống</button>
+                        </div>
+                        <div class="form-group">
+                            <a id="delete" asp-page="DeletePersonalData" class="btn btn-default"><i class="bi bi-trash-fill"></i> Xóa</a>
+                        </div>
+                    </form>
+                    <p>
+                    </p>
+            </div>
+        </div>
+   </div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

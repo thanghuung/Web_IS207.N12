@@ -1,0 +1,164 @@
+﻿@model WEB2.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+<head>
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Thêm sản phẩm mới</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Quản lý sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a asp-action="Index">Sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Tạo mới</a></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              
+                    <div class="form-group">
+                        <label asp-for="Category.CategoryId" class="control-label"></label>
+                        <select asp-for="Category.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProductName" class="control-label"></label>
+                        <input asp-for="ProductName" class="form-control" />
+                        <span asp-validation-for="ProductName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UnitPrice" class="control-label"></label>
+                        <input asp-for="UnitPrice" class="form-control" />
+                        <span asp-validation-for="UnitPrice" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="View" class="control-label"></label>
+                        <input asp-for="View" class="form-control" />
+                        <span asp-validation-for="View" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Picture" class="control-label"></label>
+                        <input asp-for="Picture" class="form-control" />
+                        <span asp-validation-for="Picture" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RawPrice" class="control-label"></label>
+                        <input asp-for="RawPrice" class="form-control" />
+                        <span asp-validation-for="RawPrice" class="text-danger"></span>
+                    </div>
+             
+                    <div class="form-group">
+                        <label asp-for="ProductDetail" class="control-label"></label>
+                        <input asp-for="ProductDetail" class="form-control" />
+                        <span asp-validation-for="ProductDetail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MSRP" class="control-label"></label>
+                        <input asp-for="MSRP" class="form-control" />
+                        <span asp-validation-for="MSRP" class="text-danger"></span>
+                    </div>
+             
+                    <div class="form-group">
+                        <label asp-for="Version" class="control-label"></label>
+                        <input asp-for="Version" class="form-control" />
+                        <span asp-validation-for="Version" class="text-danger"></span>
+                    </div>
+         
+                    <div class="form-group">
+                        <label asp-for="Color" class="control-label"></label>
+                        <input asp-for="Color" class="form-control" />
+                        <span asp-validation-for="Color" class="text-danger"></span>
+                    </div>
+              
+                    <div class="form-group">
+                        <label asp-for="UnitInOrder" class="control-label"></label>
+                        <input asp-for="UnitInOrder" class="form-control" />
+                        <span asp-validation-for="UnitInOrder" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ReorderLevel" class="control-label"></label>
+                        <input asp-for="ReorderLevel" class="form-control" />
+                        <span asp-validation-for="ReorderLevel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CurrentOrder" class="control-label"></label>
+                        <input asp-for="CurrentOrder" class="form-control" />
+                        <span asp-validation-for="CurrentOrder" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Note" class="control-label"></label>
+                        <input asp-for="Note" class="form-control" />
+                        <span asp-validation-for="Note" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConnID" class="control-label"></label>
+                        <select asp-for="ConnID" class="form-control" asp-items="ViewBag.ConnID"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ScreenID" class="control-label"></label>
+                        <select asp-for="ScreenID" class="form-control" asp-items="ViewBag.ScreenID"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="StructID" class="control-label"></label>
+                        <select asp-for="StructID" class="form-control" asp-items="ViewBag.StructID"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SoundID" class="control-label"></label>
+                        <select asp-for="SoundID" class="form-control" asp-items="ViewBag.SoundID"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GraphicID" class="control-label"></label>
+                        <select asp-for="GraphicID" class="form-control" asp-items="ViewBag.GraphicID"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BatteryID" class="control-label"></label>
+                        <select asp-for="BatteryID" class="form-control" asp-items="ViewBag.BatteryID"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RamID" class="control-label"></label>
+                        <select asp-for="RamID" class="form-control" asp-items="ViewBag.RamID"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="OSID" class="control-label"></label>
+                        <select asp-for="OSID" class="form-control" asp-items="ViewBag.OSID"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CamID" class="control-label"></label>
+                        <select asp-for="CamID" class="form-control" asp-items="ViewBag.CamID"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CPUID" class="control-label"></label>
+                        <select asp-for="CPUID" class="form-control" asp-items="ViewBag.CPUID"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RomID" class="control-label"></label>
+                        <select asp-for="RomID" class="form-control" asp-items="ViewBag.RomID"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                        <a asp-action="Index" class="btn btn-outline-dark">Trở về</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Required vendors -->
+    </div>
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+</body>
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

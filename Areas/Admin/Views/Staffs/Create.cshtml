@@ -1,0 +1,82 @@
+﻿@model WEB2.Models.Staff
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<head>
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Thêm nhân viên mới</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Nhân sự</a></li>
+                    <li class="breadcrumb-item active"><a asp-action="Index">Nhân viên</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Tạo mới</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- row -->
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          
+                    <div class="form-group">
+                        <label asp-for="AppUser.UserName" class="control-label"></label>
+                        <input asp-for="AppUser.UserName" class="form-control" />
+                        <span asp-validation-for="AppUser.UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppUser.PasswordHash" class="control-label"></label>
+                        <input asp-for="AppUser.PasswordHash" class="form-control" type="password" />
+                        <span asp-validation-for="AppUser.PasswordHash" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppUser.FullName" class="control-label"></label>
+                        <input asp-for="AppUser.FullName" class="form-control" />
+                        <span asp-validation-for="AppUser.FullName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppUser.PhoneNumber" class="control-label"></label>
+                        <input asp-for="AppUser.PhoneNumber" class="form-control" />
+                        <span asp-validation-for="AppUser.PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppUser.Email" class="control-label"></label>
+                        <input asp-for="AppUser.Email" class="form-control" />
+                        <span asp-validation-for="AppUser.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AppUser.Birthday" class="control-label"></label>
+                        <input asp-for="AppUser.Birthday" class="form-control" />
+                        <span asp-validation-for="AppUser.Birthday" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                        <a asp-action="Index" class="btn btn-outline-danger">Trở về</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+</body>
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

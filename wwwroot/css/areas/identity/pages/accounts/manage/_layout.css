@@ -1,0 +1,191 @@
+﻿.col-md-3 > div, .col-md-9 > div {
+    border-radius: 10px;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+
+}
+.col-md-9 > div {
+    padding: 20px;
+}
+    .col-md-3 > div {
+        padding: 10px;
+    }
+    .nav-link.active {
+        background-color: #be1e2d !important;
+        border-radius: 30px;
+    }
+.nav-item:hover > a {
+    color: black;
+}
+#profile-form {
+    display: table;
+}
+#profile-form > .form-group {
+    display: inline-table;
+    margin: 1%;
+    width: 46%;
+}
+#email-form > .form-group {
+    display: inline-table;
+    margin: 1%;
+    width: 46%;
+}
+#download-data {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+    #download-data .btn {
+        border-radius: 30px;
+        border: none;
+        color: white;
+    }
+    #download-data .btn-primary {
+        background-color: #3b5998;
+    }
+    #download-data .btn-primary:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    #download-data .btn-default:focus {
+        outline: none;
+        box-shadow: none;
+    }
+        #download-data .btn-default {
+        background-color: #be1e2d;
+    }
+        #download-data > .form-group {
+            display: inline-grid;
+            margin: 1%;
+            width: 100%;
+            margin-top: 10px;
+        }
+#enable-authenticator, #reset-authenticator {
+    border-radius: 30px;
+    color: white;
+}
+#enable-authenticator {
+    background-color: #be1e2d;
+}
+#reset-authenticator {
+    background-color: #3b5998;
+}
+#change-password-form > .form-group {
+    display: inline-table;
+    margin: 1%;
+    width: 46%;
+}
+#profile-form input {
+    width: 100% !important;
+    border-radius: 30px;
+}
+#email-form input {
+    width: 100% !important;
+    border-radius: 30px;
+}
+#change-password-form input {
+    width: 100% !important;
+    border-radius: 30px;
+}
+#update-profile-button, #changepwdbttn, #change-email-button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: #be1e2d;
+    border: none;
+    border-radius: 30px;
+}
+#update-profile-button:focus{
+    outline: none;
+    box-shadow: none;
+}
+.text-gray-800 {
+    color: #be1e2d;
+    text-align: center;
+}
+.input-group-append {
+    margin-left: -38px;
+    z-index: 5;
+}
+.input-group-text {
+    border-radius: 0px 30px 30px 0px;
+}
+#link-login-button-Google {
+    border-radius: 30px;
+    background-color: #DB4437;
+    border: none;
+}
+#link-login-button-Facebook {
+    border-radius: 30px;
+    background-color: #3b5998;
+    border: none;
+}
+    #link-login-button-Facebook:before {
+        
+    }
+    .exlogin {
+        margin-top: 30px;
+        display: table;
+    }
+        .exlogin > div {
+            display: inline-table;
+            margin: 1%;
+            width: 100%;
+        }
+.exlogin button {
+    width: 100%;
+}
+.chosen {
+    border-radius: 30px 0px 30px 30px;
+}
+.chosen1 {
+    border-radius: 0px 30px 30px 30px;
+}
+.chosen, .chosen1 {
+    background-color: #be1e2d;
+    color: white;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+    .chosen > a, .chosen1 > a {
+        color: white !important;
+    }
+        .chosen > a:link, .chosen1 > a:link {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* visited link */
+        .chosen > a:visited, .chosen1 > a:visited {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* mouse over link */
+        .chosen > a:hover, .chosen1 > a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* selected link */
+        .chosen > a:active, .chosen1 > a:active {
+            color: white;
+            text-decoration: none;
+        }
+#mininav a:link {
+    text-decoration: none;
+    color: black;
+}
+#mininav a:visited {
+    text-decoration: none;
+    color: black;
+}
+#mininav a:hover {
+    text-decoration: none;
+    color: black;
+}
+#mininav a:active {
+    text-decoration: none;
+    color: black;
+}

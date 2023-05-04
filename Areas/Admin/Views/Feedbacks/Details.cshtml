@@ -1,0 +1,64 @@
+﻿@model WEB2.Models.Feedback
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Feedback</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rank)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rank)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.userid)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.userid)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsShow)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsShow)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedbackDay)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FeedbackDay)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Product)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Product.ProductId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FeedbackId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+       <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>

@@ -1,0 +1,441 @@
+﻿@model IEnumerable<WEB2.Models.Product>
+@{
+    string categoryName = "";
+    int? categoryId = 0;
+}
+@foreach (var items in Model)
+{
+    categoryName = items.Category.CategoryName;
+    categoryId = items.Category.ParentCategoryId;
+    break;
+}
+@{
+    if (categoryId == 1) {
+        ViewData["Title"] = "Điện thoại " + categoryName;
+    }
+    else if (categoryId == 2)
+    {
+        ViewData["Title"] = "Laptop " + categoryName;
+    }
+    else if (categoryId == 3)
+    {
+        ViewData["Title"] = "Tablet " + categoryName;
+    }
+    else if (categoryId == 5)
+    {
+        ViewData["Title"] = categoryName;
+    }
+    else if (categoryId == 6)
+    {
+        ViewData["Title"] = "Phụ kiện " + categoryName;
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+<link href="@Url.Content("/css/views/home/productlist.css")" rel="stylesheet" type="text/css" />
+}
+<main>
+    <script src="@Url.Content("/js/views/home/productlist.js")"></script>
+
+    @if (categoryId == 1) {
+    <div class="container" style="justify-content: center">
+        <div class="mb-3">
+            <div class="d-inline category-name">
+                <a class="btn" id="Apple" asp-controller="Products" asp-action="Category" asp-route-id="7"><img src="//cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png" width="90" /></a>
+                <a class="btn" id="Samsung"  asp-controller="Products" asp-action="Category" asp-route-id="8"><img src="//cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png" width="90" /></a>
+                <a class="btn" id="Xiaomi"  asp-controller="Products" asp-action="Category" asp-route-id="9"><img src="//cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png" width="90" /></a>
+                <a class="btn" id="Vivo"  asp-controller="Products" asp-action="Category" asp-route-id="10"><img src="//cdn.tgdd.vn/Brand/1/Vivo42-b_50.jpg" width="90" /></a>
+                <a class="btn" id="Oneplus"  asp-controller="Products" asp-action="Category" asp-route-id="12"><img src="https://cdn.tgdd.vn/Brand/1/OnePlus42-b_36.jpg" width="90" /></a>
+                <a class="btn" id="Nokia"  asp-controller="Products" asp-action="Category" asp-route-id="13"><img src="//cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg" width="90" /></a>
+                <a class="btn" id="Realme"  asp-controller="Products" asp-action="Category" asp-route-id="14"><img src="//cdn.tgdd.vn/Brand/1/Realme42-b_37.png" width="90" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="highlight">
+        @foreach (var item in Model) {
+            <div class="displaying">
+                @*class để hiển thị *@
+                <a asp-action="Details" asp-route-id="@item.ProductId">
+                    <div class="card">
+                        @*nhớ add id này để lọc *@
+                        <img class="card-img-top" src="@item.Picture" alt="@item.Color">
+                        <div class="card-body">
+                            <h6 class="card-title product-name">@item.ProductName</h6>
+                            <h5 class="card-title pricesale m-0">@item.UnitPrice</h5>
+                            <h6 class="card-title price text-muted mt-1">@item.MSRP</h6>
+                            <div>
+                                <p style="display:inline">
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                    </svg>
+                                </p>
+                            </div>
+                            <div class="information">
+                                @*render các thông tin vào thẻ span*@
+                                <ul>
+                                    @*màn hình*@
+                                    <li id="screen"><p>Màn hình&nbsp<span id="inch">@item.Screen.Size</span>"</p></li>
+                                    @*chip*@
+                                    <li id="chip"><p>Chip&nbsp<span id="chip-name">@item.Processor.Name</span></p></li>
+                                    @*ram, rom*@
+                                    <li id="storage"><p>RAM&nbsp<span id="ram">@item.Ram.Capacity</span>&nbspGB,&nbspROM&nbsp<span id="rom">@item.Rom.Capacity</span>&nbspGB</p></li>
+                                    @*camera trước*@
+                                    <li id="front-cam"><p>Camera trước:&nbsp<span id="cam1">@item.Camera.FCamRes</span></p></li>
+                                    @*camera sau*@
+                                    <li id="back-cam"><p>Camera sau:&nbsp<span id="cam2">@item.Camera.BCamRes</span></p></li>
+                                    @*pin*@
+                                    <li id="battery"><p>Pin&nbsp<span id="capacity">@item.Battery.Capacity</span>&nbspmAh</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+    }
+    else if (categoryId == 2)
+    {
+     <div class="container" style="justify-content: center">
+        <div class="mb-3">
+            <div class="d-inline">
+                <a class="btn" id="Apple" asp-controller="Products" asp-action="Category" asp-route-id="16"><img src="https://cdn.tgdd.vn/Brand/1/logo-macbook-149x40.png" width="90" /></a>
+                <a class="btn" id="Asus" asp-controller="Products" asp-action="Category" asp-route-id="17"><img src="https://cdn.tgdd.vn/Brand/1/logo-asus-149x40.png" width="90" /></a>
+                <a class="btn" id="Acer" asp-controller="Products" asp-action="Category" asp-route-id="18"><img src="https://cdn.tgdd.vn/Brand/1/logo-acer-149x40.png" width="90" /></a>
+                <a class="btn" id="Dell" asp-controller="Products" asp-action="Category" asp-route-id="19"><img src="https://cdn.tgdd.vn/Brand/1/logo-dell-149x40.png" width="90" /></a>
+                <a class="btn" id="Lenovo" asp-controller="Products" asp-action="Category" asp-route-id="20"><img src="https://cdn.tgdd.vn/Brand/1/logo-lenovo-149x40.png" width="90" /></a>
+                <a class="btn" id="HP" asp-controller="Products" asp-action="Category" asp-route-id="21"><img src="https://cdn.tgdd.vn/Brand/1/logo-hp-149x40-1.png" width="90" /></a>
+                <a class="btn" id="MSI" asp-controller="Products" asp-action="Category" asp-route-id="22"><img src="https://cdn.tgdd.vn/Brand/1/logo-msi-149x40.png" width="90" /></a>
+           </div>
+        </div>
+    </div>
+    <div>
+        <div class="highlight">
+            @foreach (var item in Model) {
+                <div class="displaying">
+                    @*class để hiển thị *@
+                    <a asp-action="Details" asp-route-id="@item.ProductId">
+                        <div class="card">
+                            @*nhớ add id này để lọc *@
+                            <img class="card-img-top" src="@item.Picture" alt="@item.Color">
+                            <div class="card-body">
+                                 <p class="rom-ram">
+                                     <span id="ram">RAM
+                                         <span id="ram-detail">@item.Ram.Capacity</span>&nbspGB&nbsp</span>
+                                     <span id="rom">SSD @if (@item.Rom.Capacity == 1024) {<span>1 TB</span>}
+                                        else if (@item.Rom.Capacity == 2048)
+                                        {
+                                            <span>1 TB</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@item.Rom.Capacity GB</span>
+                                        }
+                                         </span>
+                                    </p>
+                                <h6 class="card-title product-name">@item.ProductName</h6>
+                                <h5 class="card-title pricesale m-0">@item.UnitPrice</h5>
+                                <h6 class="card-title price text-muted mt-1">@item.MSRP</h6>
+                                <div>
+                                    <p style="display:inline">
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                                <div class="information">
+                                    @*render các thông tin vào thẻ span*@
+                                    <ul>
+                                        @*màn hình*@
+                                        <li id="screen"><p>Màn hình&nbsp<span id="inch">@item.Screen.Size</span>&nbspinch</p></li>
+                                        @*chip*@
+                                        <li id="chip"><p>Chip<span id="chip-name">@item.Processor.Name</span></p></li>
+                                        @*ram, rom*@
+                                        <li id="storage"><p><span id="ram">@item.Ram.Capacity</span>&nbspGB,&nbspSSD<span id="rom">
+                                            @if (@item.Rom.Capacity == 1024) {<span>1 TB</span>}
+                                            else if (@item.Rom.Capacity == 2048)
+                                            {
+                                                <span>1 TB</span>
+                                            }
+                                            else
+                                            {
+                                                <span>@item.Rom.Capacity GB</span>
+                                            }
+                                        </span></p></li>
+                                        @*camera trước*@
+                                        @*pin*@
+                                        <li id="battery">
+                                            <p>Pin
+                                                <span id="capacity">
+                                                    @if (@item.Battery.Capacity == 10)
+                                                    {
+                                                        <span>khoảng 10 tiếng</span>
+                                                    }
+                                                    else if (@item.Battery.Capacity == 0)
+                                                    {
+                                                        <span>@item.Battery.Charge W @item.Battery.Type  </span>
+                                                    }
+                                                    else {<span>@item.Battery.Capacity@item.Battery.Type</span>}
+                                                </span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    }
+    else if (categoryId == 3)
+    {
+     <div class="container" style="justify-content: center">
+        <div class="mb-3">
+            <div class="d-inline">
+                <a class="btn" id="Apple" asp-controller="Products" asp-action="Category" asp-route-id="23"><img src="https://cdn.tgdd.vn/Brand/1/iPad-(Apple)522-b_4.jpg" width="90" /></a>
+                <a class="btn" id="Samsung" asp-controller="Products" asp-action="Category" asp-route-id="24"><img src="https://cdn.tgdd.vn/Brand/1/samsungnew-220x48-3.png" width="90" /></a>
+                <a class="btn" id="Huawei" asp-controller="Products" asp-action="Category" asp-route-id="26"><img src="https://cdn.tgdd.vn/Brand/1/Huawei522-b_4.jpg" width="90" /></a>
+            </div>
+        </div>
+    </div>
+        <div class="highlight">
+        @foreach (var item in Model) {
+            <div class="displaying">
+                @*class để hiển thị *@
+                <a asp-action="Details" asp-route-id="@item.ProductId">
+                    <div class="card">
+                        @*nhớ add id này để lọc *@
+                        <img class="card-img-top" src="@item.Picture" alt="@item.Color">
+                        <div class="card-body">
+                            <h6 class="card-title product-name">@item.ProductName</h6>
+                            <h5 class="card-title pricesale m-0">@item.UnitPrice</h5>
+                            <h6 class="card-title price text-muted mt-1">@item.MSRP</h6>
+                            <div>
+                                <p style="display:inline">
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                    </svg>
+                                </p>
+                            </div>
+                            <div class="information">
+                                @*render các thông tin vào thẻ span*@
+                                <ul>
+                                    @*màn hình*@
+                                    <li id="screen"><p>Màn hình&nbsp<span id="inch">@item.Screen.Size</span>&nbspinch</p></li>
+                                    @*chip*@
+                                    <li id="chip"><p>Chip <span id="chip-name">@item.Processor.Name</span></p></li>
+                                    @*ram, rom*@
+                                    <li id="storage"><p><span id="ram">@item.Ram.Capacity</span>&nbspGB,&nbspROM<span id="rom">
+                                        @if (@item.Rom.Capacity == 1024) {<span>1 TB</span>}
+                                        else if (@item.Rom.Capacity == 2048)
+                                        {
+                                            <span>1 TB</span>
+                                        }
+                                        else
+                                        {
+                                            <span>@item.Rom.Capacity GB</span>
+                                        }
+                                    </span></p></li>  
+                                    @*pin*@
+                                    <li id="battery">
+                                        <p>Pin
+                                            <span id="capacity">
+                                                @if (@item.Battery.Capacity == 10)
+                                                {
+                                                    <span>khoảng 10 tiếng</span>
+                                                }
+                                                else if (@item.Battery.Capacity == 0)
+                                                {
+                                                    <span>@item.Battery.Charge W @item.Battery.Type  </span>
+                                                }
+                                                else {<span>@item.Battery.Capacity mAh @item.Battery.Type</span>}
+                                            </span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+    }
+    else if (categoryId == 5)
+    {
+     <div class="container" style="justify-content: center">
+        <div class="mb-3">
+            <div class="d-inline">
+                <a class="btn" id="Apple" asp-controller="Products" asp-action="Category" asp-route-id="44"><img src="https://cdn.tgdd.vn/Brand/1/Apple9499-b_28.jpg" width="90" /></a>
+                <a class="btn" id="LG" asp-controller="Products" asp-action="Category" asp-route-id="39"><img src="https://cdn.tgdd.vn/Brand/1/LG54-b_17.png" width="90" /></a>
+                <a class="btn" id="Jabra" asp-controller="Products" asp-action="Category" asp-route-id="58"><img src="https://cdn.tgdd.vn/Brand/1/Jabra54-b_17.jpg" width="90" /></a>
+                <a class="btn" id="Mozard" asp-controller="Products" asp-action="Category" asp-route-id="59"><img src="https://cdn.tgdd.vn/Brand/1/Mozard54-b_35.jpg" width="90" /></a>
+                <a class="btn" id="Xiaomi" asp-controller="Products" asp-action="Category" asp-route-id="60"><img src="//cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png" width="90" /></a>
+                <a class="btn" id="Belkin" asp-controller="Products" asp-action="Category" asp-route-id="67"><img src="https://cdn.tgdd.vn/Brand/1/Belkin54-b_57.jpg" width="90" /></a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="highlight">
+        @foreach (var item in Model) {
+            <div class="displaying">
+                @*class để hiển thị *@
+                <a asp-action="Details" asp-route-id="@item.ProductId">
+                    <div class="card">
+                        @*nhớ add id này để lọc *@
+                        <img class="card-img-top" src="@item.Picture" alt="@item.Color">
+                        <div class="card-body" style="height: 200px;">
+                            <h6 class="card-title product-name">@item.ProductName</h6>
+                            <h5 class="card-title pricesale m-0">@item.UnitPrice</h5>
+                            <h6 class="card-title price text-muted mt-1">@item.MSRP</h6>
+                            <div>
+                                <p style="display:inline">
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                    </svg>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+        </div> 
+    </div>
+    }
+    else if (categoryId == 6)
+    {
+         <div class="container" style="justify-content: center">
+            <div class="mb-3">
+                <div class="d-inline">
+                    <a class="btn" id="Apple" asp-controller="Products" asp-action="Category" asp-route-id="46"><img src="https://cdn.tgdd.vn/Brand/1/Apple9499-b_28.jpg" width="90" /></a>
+                    <a class="btn" id="Razer" asp-controller="Products" asp-action="Category" asp-route-id="54"><img src="https://cdn.tgdd.vn/Brand/1/220-48-220x48-13.jpg" width="90" /></a>
+                    <a class="btn" id="Rapoo" asp-controller="Products" asp-action="Category" asp-route-id="61"><img src="https://cdn.tgdd.vn/Brand/1/Rapoo86-s56-160x40-2.png" width="90" /></a>
+                    <a class="btn" id="HyperX" asp-controller="Products" asp-action="Category" asp-route-id="62"><img src="https://cdn.tgdd.vn/Brand/1/logo-hyperx-1-220x48-1.jpg" width="90" /></a>
+                    <a class="btn" id="Logitech" asp-controller="Products" asp-action="Category" asp-route-id="63"><img src="https://cdn.tgdd.vn/Brand/1/Logitech86-b_41.jpg" width="90" /></a>
+                    <a class="btn" id="Energizer" asp-controller="Products" asp-action="Category" asp-route-id="65"><img src="https://cdn.tgdd.vn/Brand/1/Energizer57-b_50.jpg" width="90" /></a>
+                    <a class="btn" id="Xmobile" asp-controller="Products" asp-action="Category" asp-route-id="66"><img src="https://cdn.tgdd.vn/Brand/1/Xmobile57-b_42.jpg" width="90" /></a>
+                </div>
+            </div>
+        </div>
+        <div>
+        <div class="highlight">
+        @foreach (var item in Model) {
+            <div class="displaying">
+                @*class để hiển thị *@
+                <a asp-action="Details" asp-route-id="@item.ProductId">
+                    <div class="card">
+                        @*nhớ add id này để lọc *@
+                        <img class="card-img-top" src="@item.Picture" alt="@item.Color">
+                        <div class="card-body"  style="height: 225px;">
+                            <h6 class="card-title product-name">@item.ProductName</h6>
+                            <h5 class="card-title pricesale m-0">@item.UnitPrice</h5>
+                            <h6 class="card-title price text-muted mt-1">@item.MSRP</h6>
+                            <div>
+                                <p style="display:inline">
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                    </svg>
+                                    <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                    </svg>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+            </div>    
+        </div>
+    }
+
+</main>
+<script src="@Url.Content("~/js/views/product/general.js")"></script>
+<script>
+    $(document).ready(function () {
+       $("#@categoryName").css("border", "1px solid #be1e2d");
+       $(".sub-nav-item").ready(function(){
+               if (@categoryId == 1) {
+                     $("#phone").css({ "background-color": "white", "color": "#be1e2d"});
+                }
+                else if (@categoryId == 2)
+                {
+                     $("#laptop").css({ "background-color": "white", "color": "#be1e2d"});
+                }
+                else if (@categoryId == 3)
+                {
+                     $("#tablet").css({ "background-color": "white", "color": "#be1e2d"});
+                }
+                else if (@categoryId == 5)
+                {
+                     $("#sound").css({ "background-color": "white", "color": "#be1e2d"});
+                }
+                else if (@categoryId == 6)
+                {
+                    $("#accessories").css({ "background-color": "white", "color": "#be1e2d"});
+                }
+       })
+    });
+</script>
+

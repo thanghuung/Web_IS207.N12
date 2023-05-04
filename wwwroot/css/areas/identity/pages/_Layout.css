@@ -1,0 +1,90 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.eot');
+    src: url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.woff') format('woff'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+.topnav {
+    margin-bottom: 0rem !important;
+    background-color: white;
+}
+header {
+    border-bottom: 1px solid #D1D5DB;
+}
+#pagetitle {
+    margin-bottom: 0px; 
+    color: #be1e2d;
+    left: 0;
+}
+.logo {
+    font-family: "Cabin", sans-serif;
+    font-size: 200%;
+    justify-content: center;
+    display: flex;
+    color: black;
+}
+
+    .logo span {
+        color: #be1e2d;
+        display: inline-block;
+    }
+
+.logo {
+    display: inline-block;
+    word-wrap: normal;
+}
+.footer {
+    width: 100%;
+    white-space: normal;
+    padding: 0;
+    background-color: black;
+}
+
+.sub > p {
+    color: white;
+    font-weight: bold;
+}
+
+.sub > a {
+    color: #6c6f7d;
+    font-size: 15px;
+    display: block;
+}
+
+    .sub > a:link {
+        color: #6c6f7d;
+        text-decoration: none;
+    }
+
+    .sub > a:visited {
+        color: #6c6f7d;
+        text-decoration: none;
+        transition: 0.5s ease-in;
+    }
+
+    .sub > a:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    .sub > a:active {
+        color: #6c6f7d;
+        text-decoration: none;
+    }
+
+.credit {
+    background-color: #f1f1f1;
+}
+
+    .credit > .container > p {
+        display: inline-block;
+        word-wrap: break-word;
+        margin-bottom: 0px;
+        font-size: 12px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        color: black;
+        font-weight: normal;
+    }

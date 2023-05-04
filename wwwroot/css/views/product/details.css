@@ -1,0 +1,639 @@
+﻿
+.product-slice {
+    width: 400px;
+    height: 400px;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+}
+    .product-slice img {
+        width: 350px;
+        height: 350px;
+    }
+.product-slice-nav {
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 400px;
+    height: 100px;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+}
+    .product-slice-nav img {
+        width: 80px;
+        height: 80px;
+        border: 1px solid #D1D5DB;
+        padding: 5px;
+        border-radius: 10px;
+        margin: auto;
+    }
+
+    .slider-nav > div {
+        justify-content: center;
+    }
+    .slider-for {
+        margin: 25px;
+    }
+.row {
+    margin-bottom: 100px !important;
+}
+
+.product-slice .slick-prev, .product-slice .slick-next {
+    background-color: transparent;
+    z-index: 1;
+    width: 40px !important;
+    height: 60px !important;
+    justify-content: center;
+    border-radius: 5px;
+    top: 49% !important;
+}
+.product-slice .slick-prev {
+    box-shadow: none !important;
+}
+.product-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    width: 100%;
+}
+.product-slice .slick-next {
+    box-shadow: none !important;
+}
+
+    .product-slice .slick-prev:before, .product-slice .slick-next:before {
+        color: rgb(158 158 158 / 0.5) !important;
+        font-size: 32px !important;
+    }
+
+
+.product-slice .slick-prev:focus {
+    box-shadow: 6px 1px 4px rgb(0 0 0 / 10%), 4px 0 4px rgb(0 0 0 / 18%);
+}
+
+.product-slice .slick-next:focus {
+    box-shadow: -6px 0 4px rgb(0 0 0 / 10%), -4px 0 4px rgb(0 0 0 / 18%);
+}
+h3.unitprice{
+    color: #be1e2d; 
+    font-weight: bold;
+    display: inline;
+}
+
+#price2 {
+    color: #666;
+    text-decoration: line-through 1px #666;
+}
+    .headerpath {
+        border-bottom: 1px solid #D1D5DB !important;
+    }
+    .headerpath > span > a:link {
+        color: black;
+        text-decoration: none;
+    }
+    .headerpath > span > a:visited {
+        color: black;
+        text-decoration: none;
+    }
+    .headerpath > span > a:hover {
+        color: black;
+        text-decoration: none;
+    }
+    .headerpath > span > a:active {
+        color: black;
+        text-decoration: none;
+    }
+
+.info {
+
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+}
+    .info > div {
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+.info > div > .table > tbody > tr > td {
+    padding: 0.4rem;
+    vertical-align: middle;
+    border-top: none;
+    text-align: left;
+    padding-left: 10px;
+}
+.cauhinhchitiet {
+    margin: auto;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
+    .cauhinhchitiet tr > td {
+        padding: 0.5rem;
+        vertical-align: middle;
+        border-top: none;
+        text-align: left;
+        padding-left: 20px;
+        font-size: 15px;
+        text-align: left;
+    }
+.table tr{
+    border: 1px solid #F2F2F2;
+}
+    .cauhinhchitiet tr > td {
+        max-width: 25px;
+    }
+    .cauhinhchitiet > div > h6 {
+        padding-left: 0.5rem;
+        color: #be1e2d;
+    }
+.cauhinhchitiet tr > td:first-child {
+    font-weight: 500;
+    width: 25%
+}
+.cauhinhchitiet .table{
+    width: 98%;
+}
+table {
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.info > a {
+    width: 10.5%;
+    width: 95%;
+    font-size: 14px;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+}
+
+    .info > a:hover {
+        color: white !important;
+        background-color: #be1e2d;
+        transition: 0.1s;
+        cursor: pointer;
+    }
+.info tr > td:first-child {
+    font-weight: 500;
+}
+.cauhinhchitiet > div {
+    margin-top: 30px;
+}
+
+
+.clickbuy > a {
+    background-color: rgb(26, 148, 255);
+    position: absolute;
+    margin-top: 20px;
+    color: white;
+    padding: 10px;
+    width: 92%;
+    border-radius: 10px;
+    text-align: center;
+}
+    .clickbuy > a:link{
+        text-decoration: none;
+    }
+        .clickbuy > a:visited {
+            text-decoration: none;
+        }
+        .clickbuy > a:hover {
+            text-decoration: none;
+        }
+        .clickbuy > a:active {
+            text-decoration: none;
+        }
+.clickbuy  p {
+    margin-bottom: 0px;
+}
+
+.uudai {
+    position: absolute;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+    border-radius: 10px;
+}
+    .uudai > h6 {
+        padding: 10px;
+        background-color: #be1e2d;
+        border-radius: 10px 10px 0px 0px;
+        color: white;
+        margin-bottom: 0px;
+    }
+.uudaicontent > p > i {
+    color: #be1e2d;
+}
+.thongtinmay {
+    position: absolute;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+    border-radius: 10px;
+}
+    .thongtinmay > h6 {
+        padding: 10px;
+        background-color: #f6f6f6;
+        border-radius: 10px 10px 0px 0px;
+        margin-bottom: 0px;
+    }
+
+.uudaicontent, .thongtincontent, .quatangcontent {
+    margin: auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 1px;
+    font-size: 14px;
+}
+
+    .uudaicontent ul, .thongtincontent ul, .quatangcontent ul {
+        padding-left: 20px;
+    }
+    .uudaicontent li::marker, .quatangcontent li::marker {
+        content: "✅";
+    }
+    .thongtincontent li::marker {
+        content: "🛡";
+    }
+.quatangdikem {
+    position: absolute;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+    border-radius: 10px;
+}
+    .quatangdikem > h6 {
+        padding: 10px;
+        background-color: #be1e2d;
+        border-radius: 10px 10px 0px 0px;
+        margin-bottom: 0px;
+        color: white;
+    }
+.grouping > div {
+    margin-bottom: 8px;
+}
+    .grouping > div > a {
+        border: 1px solid #e0e0e0;
+        color: #333;
+    }
+.modal-footer > button {
+    background-color: #be1e2d;
+    border: none;
+    color: white !important;
+}
+.modal-header {
+    background-color: #be1e2d;
+}
+.modal-title {
+    color: white;
+}
+.modal-header > button > span {
+    color: white;
+}
+.modal-footer > button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #be1e2d;
+    color: white !important;
+}
+
+.modal-footer button:hover {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #be1e2d !important;
+    color: white !important;
+}
+
+.modal-content {
+    border: none !important;
+}
+#exampleModalLong .modal-dialog {
+    max-width: 700px !important;
+}
+.relative::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.relative > div {
+    float: left;
+    width: 25%;
+    padding-top: 0px;
+}
+
+    .relative > div > a:hover {
+        text-decoration: none;
+        color: black;
+    }
+.relative > h5 {
+    background-color: #be1e2d;
+    color: white;
+    border-radius: 10px 10px 0px 0px;
+}
+.relative {
+    justify-content: center;
+}
+
+    .relative > div > a > div {
+        border-radius: 10px;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 15px;
+        margin-top: 10px;
+    }
+        .relative > div > a > div:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition: 0.4s ease-in-out;
+        }
+.card-img-top {
+    height: 65%;
+    width: 65%;
+    margin: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+.card {
+    border: 1px solid white;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+}
+.card-body {
+    height: 175px;
+}
+h5.pricesale {
+    color: #be1e2d;
+}
+
+h6.price {
+    text-decoration: line-through 1px solid black;
+}
+.lbsale {
+    padding-top: 3px;
+    padding-left: 7px;
+}
+
+.lbtragop {
+    background-color: #be1e2d;
+    color: white;
+}
+.lbsale span {
+    border-radius: 4px;
+    font-size: 11px;
+    line-height: 12px;
+    display: inline-block;
+    padding: 4px;
+}
+.rating-checked {
+    color: rgb(255, 81, 0);
+}
+.relative {
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+    border-radius: 10px;
+}
+.contentproduct, #danhgia {
+    padding: 15px;
+    border: 1px solid white;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+    border-radius: 10px;
+}
+.commentpannel {
+    padding-bottom: 15px;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+    border-radius: 10px;
+}
+    .commentpannel > h5 {
+        margin: 0px;
+        color: white;
+        background-color: #be1e2d;
+        border-radius: 10px 10px 0px 0px;
+        padding: 12px;
+    }
+.contentproduct > div > div > h5 {
+    color: #be1e2d;
+    text-align: center;
+}
+#blogcontent img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+#blogcontent > p{
+    padding: 5px;
+    margin-bottom: 5px;
+}
+#danhgia > h5{
+    text-align: center;
+    color: #be1e2d;
+}
+
+.rating-box {
+    border: 1px solid #DEE2E6;
+    border-radius: 10px;
+    padding: 10px;
+    clear: both !important;
+}
+.rating-box > div > p > svg {
+    vertical-align: -0.1em !important;
+}
+.rating-box > div > p {
+    font-weight: bold;
+    margin-bottom: 0px;
+    display: inline-block;
+}
+.baseline {
+    flex: 1;
+    height: 12px;
+    padding: 2px;
+    border-radius: 10px;
+    background: #E4E4E4;
+    overflow: hidden;
+    display: inline-block;
+    width: 55%;
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+}
+.rating-box > div > span  {
+    font-size: 12px;
+    float: right;
+    margin-top: 0.15rem !important;
+}
+.rating-box > div {
+    clear: both !important;
+}
+
+.baseline > div {
+    height: 100%;
+    border-radius: 10px;
+    background: rgb(26, 148, 255);
+    width: 0;
+    border-radius: 10px;
+}
+.btndanhgia > a{
+    margin-top: 10px;
+    background-color: #be1e2d;
+    color: white !important;
+    width: 100%;
+    border-radius: 10px !important;
+}
+.btndanhgia > a:hover {
+    cursor: pointer;
+}
+
+#exampleModal1 .form-group > input {
+    border-radius: 10px;
+}
+.modal-content button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #be1e2d;
+}
+
+
+.stars {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center
+}
+
+.stars__star-icon {
+    stroke: #EFCE4A;
+    stroke-width: 2px;
+    fill: transparent;
+    transition: .1s all;
+}
+
+.stars__star {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.stars__checkbox {
+    position: absolute;
+    top: -9999px;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.stars__star:hover > .stars__star-icon {
+    fill: #EFCE4A;
+}
+
+.stars__star:hover ~ .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+}
+
+.stars__checkbox:checked + .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+}
+
+.stars__checkbox:checked ~ .stars__star > .stars__star-icon {
+    fill: #EFCE4A;
+}
+.rating-system {
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#exampleModal1 textarea {
+    border-radius: 10px !important;
+}
+.individual {
+    clear: both;
+}
+    .individual > div {
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+        .individual > div:first-child {
+            justify-content: center;
+            align-items: center;
+            display: inline-grid;
+        }
+        .individual > div:first-child {
+            height: 30px;
+            width: 30px;
+        }
+        .first-character {
+            background-color: #DDDDDD;
+            border-radius: 5px;
+            text-align:center;
+            font-weight: bold;
+        }
+.individual .fullname {
+    font-weight: bold;
+}
+.timeofcmt {
+    float: right;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-right: 20px;
+    vertical-align: 1em !important;
+} 
+.contentofcmt {
+    background-color: #F3F4F6;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 100px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.reply > textarea {
+    padding: 10px;
+    margin-top: 1em;
+    margin-left: 1em;
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+    border-radius: 10px !important;
+    width: 80%;
+    border: 1px solid white;
+}
+    .reply > textarea:focus {
+        border: 1px solid white;
+        box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px !important;
+    }
+.reply-form > form > div {
+    display: inline-block;
+}
+.reply-form input[type="submit"] {
+    float:right;
+}
+
+    .phienban > .btn-outline-primary, .mausac > .btn-outline-primary {
+        border: 1px solid rgb(26, 148, 255) !important;
+        color: rgb(26, 148, 255);
+    }
+        .phienban > .btn, .mausac > .btn {
+            margin-top: 5px;
+        }
+        .phienban > .btn-outline-primary:link, .mausac > .btn-outline-primary:link {
+            background-color: white;
+            color: rgb(26, 148, 255);
+        }
+/* visited link */
+    .phienban > .btn-outline-primary:visited, .mausac > .btn-outline-primary:visited {
+        background-color: white;
+        color: rgb(26, 148, 255);
+    }
+/* mouse over link */
+    .phienban > .btn-outline-primary:hover, .mausac > .btn-outline-primary:hover {
+        background-color: white;
+        color: rgb(26, 148, 255);
+    }
+/* selected link */
+    .phienban > .btn-outline-primary:active, .mausac > .btn-outline-primary:active {
+        background-color: white;
+        color: rgb(26, 148, 255);
+    }
+    .phienban > .btn-outline-primary:focus, .mausac > .btn-outline-primary:focus {
+        background-color: white !important;
+        color: rgb(26, 148, 255) !important;
+    }
+.phienban > .btn:focus, .mausac > .btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}

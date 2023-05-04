@@ -1,0 +1,79 @@
+﻿
+.d-flex > div {
+    width: 28%;
+    background: white;
+    border-radius: 5px;
+}
+.register-form > p {
+    font-size: 14px;
+}
+    p > a {
+        color: #be1e2d;
+    }
+        p > a:hover {
+            text-decoration: none;
+            color: #be1e2d;
+        }
+main {
+    background: #be1e2d url("/img/areas/identity/pages/accounts/Register_bg.png") no-repeat ;
+    background-size: 50%;
+    background-position: 20% 40%;
+}
+
+.centering {
+    justify-content: center;
+    display: flex;
+}
+    button {
+        text-align: center;
+        background-color: #be1e2d;
+        border-color: #be1e2d;
+    }
+
+    button:focus {
+        box-shadow: none !important;
+    }
+
+    button:hover {
+        background-color: #be1e2d;
+        border-color: #be1e2d;
+    }
+.form-group > input {
+    border-radius: 2px;
+}
+    .form-group > input:focus {
+        box-shadow: none !important;
+        border-color: #be1e2d;
+    }
+
+
+.hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: black;
+    text-align: center;
+    height: 1.5em;
+    opacity: .5;
+}
+    .hr-text:before {
+        content: '';
+        background: linear-gradient(to right, transparent, #818078, transparent);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+    }
+
+    .hr-text:after {
+        content: attr(data-content);
+        position: relative;
+        display: inline-block;
+        color: black;
+        padding: 0 .5em;
+        line-height: 1.5em;
+        // this is really the only tricky part, you need to specify the background color of the container element... color: #818078;
+        background-color: #fcfcfa;
+    }

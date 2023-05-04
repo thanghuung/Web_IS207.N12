@@ -1,0 +1,239 @@
+﻿@model WEB2.Areas.Order.Db2
+
+@{
+    ViewData["Title"] = "Dashboard2";
+}
+
+<head>
+    <link href="~/vendor/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <link href="~/vendor/chartist/css/chartist.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+
+       <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="stat-widget-one card-body">
+                        <div class="stat-icon d-inline-block">
+                            <i class="ti-money text-success border-success"></i>
+                        </div>
+                        <div class="stat-content d-inline-block">
+                            <div class="stat-text">Doanh thu</div>
+                            <div class="stat-digit">@Model.Profit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="stat-widget-one card-body">
+                        <div class="stat-icon d-inline-block">
+                            <i class="ti-user text-primary border-primary"></i>
+                        </div>
+                        <div class="stat-content d-inline-block">
+                            <div class="stat-text">Khách hàng</div>
+                            <div class="stat-digit">@Model.Customer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="stat-widget-one card-body">
+                        <div class="stat-icon d-inline-block">
+                            <i class="ti-desktop text-pink border-pink"></i>
+                        </div>
+                        <div class="stat-content d-inline-block">
+                            <div class="stat-text">Sản phẩm</div>
+                            <div class="stat-digit">@Model.Product</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card">
+                    <div class="stat-widget-one card-body">
+                        <div class="stat-icon d-inline-block">
+                            <i class="ti-receipt text-danger border-danger"></i>
+                        </div>
+                        <div class="stat-content d-inline-block">
+                            <div class="stat-text">Doanh số hôm nay</div>
+                            <div class="stat-digit">@Model.Todei</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Thống kê theo năm</h4>
+                        <div class=" pull-right">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <label>Select Year: </label>
+                                    <select class="form-control input-sm" id="select_year">
+                                                         
+                                            @for(int i = 2020; i<=2065; i++){
+                                               
+                                            @if(i == Model.Year) {
+                                                    <option value="@i" selected="selected">@i</option>
+                                            } else {
+                                               <option value="@i">@i</option> 
+                                            }
+
+                                             
+                                            
+                                            }
+                                        
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="ct-bar-chart mt-5"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="ct-pie-chart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="year-calendar"></div>
+                    </div>
+                </div>
+                <!-- /# card -->
+            </div>
+           
+        </div>
+    </div>
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+
+    <script src="~/vendor/chartist/js/chartist.min.js"></script>
+
+    <script src="~/vendor/moment/moment.min.js"></script>
+    <script src="~/vendor/pg-calendar/js/pignose.calendar.min.js"></script>
+
+    <script type="text/javascript">
+
+       (function($) {
+    "use strict"
+
+
+    var data = {
+        labels: ['Apple', 'UIT', 'UTE'],
+        series: [{
+                    value: 20,
+                   
+                },
+                {
+                    value: 10,
+                  
+                },
+                {
+                    value: 30,
+                   
+                },
+               
+            ]  ,
+                    colors: ["#111", "#222", "#111"]
+    };
+
+    var options = {
+        labelInterpolationFnc: function(value) {
+            return value[0]
+        }
+    };
+
+    var responsiveOptions = [
+        ['screen and (min-width: 640px)', {
+            chartPadding: 30,
+            labelOffset: 100,
+            labelDirection: 'explode',
+            labelInterpolationFnc: function(value) {
+                return value;
+            }
+        }],
+        ['screen and (min-width: 1024px)', {
+            labelOffset: 80,
+            chartPadding: 20
+        }]
+    ];
+
+    new Chartist.Pie('.ct-pie-chart', data, options, responsiveOptions);
+
+
+    /*----------------------------------*/
+     var data1 = [];
+    var data2 = [];
+            @foreach (var item in Model.Po) {
+
+                    <text>  data1.push(@item.MoneyIn); data2.push(@item.MoneyOut); </text>
+
+                }
+                console.log(data1);
+                console.log(data2);
+    var data = {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        series: [
+            data1,
+            data2,
+        ]
+    };
+
+    var options = {
+        seriesBarDistance: 10
+    };
+
+    var responsiveOptions = [
+        ['screen and (max-width: 640px)', {
+            seriesBarDistance: 5,
+            axisX: {
+                labelInterpolationFnc: function(value) {
+                    return value[0];
+                }
+            }
+        }]
+    ];
+
+    new Chartist.Bar('.ct-bar-chart', data, options, responsiveOptions);
+
+
+    $('.year-calendar').pignoseCalendar({
+        theme: 'blue' // light, dark, blue
+    });
+
+
+
+
+
+
+})(jQuery);
+
+
+const wt2 = new PerfectScrollbar('.widget-todo2');
+    </script>
+    <script>
+    $(function() {
+        $('#select_year').change(function() {
+            window.location.href = 'dashboard2?year=' + $(this).val();
+        });
+    });
+    </script>
+</body>

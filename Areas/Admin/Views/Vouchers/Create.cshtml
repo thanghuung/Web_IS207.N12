@@ -1,0 +1,74 @@
+﻿@model WEB2.Models.Voucher
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<head>
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Thêm khuyến mãi cho khách hàng</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Hàng hóa</a></li>
+                    <li class="breadcrumb-item active"><a asp-action="Index">Khuyến mãi</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Tạo mới</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- row -->
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="form-group">
+                        <label asp-for="VoucherDetail" class="control-label"></label>
+                        <input asp-for="VoucherDetail" class="form-control" />
+                        <span asp-validation-for="VoucherDetail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Loaigiam" class="control-label"></label>
+                      
+                        <select asp-for="Loaigiam" >
+                            <option value="1">giam theo luot</option>
+                            <option value="2">giam theo dot</option>
+                        </select>
+                        <span asp-validation-for="Loaigiam" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Number" class="control-label"></label>
+                        <input asp-for="Number" class="form-control" />
+                        <span asp-validation-for="Number" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Sotientoida" class="control-label"></label>
+                        <input asp-for="Sotientoida" class="form-control" />
+                        <span asp-validation-for="Sotientoida" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                        <a asp-action="Index" class="btn btn-outline-danger">Trở về</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

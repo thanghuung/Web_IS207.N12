@@ -1,0 +1,102 @@
+﻿@model IEnumerable<WEB2.Models.Shipment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <!-- Datatable -->
+    <link href="~/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+
+              
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Hàng hóa</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Vận chuyển</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- row -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                             <a asp-action="Create"> <h4 class = "border-danger">Thêm công ty vận chuyển</h4></a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CompanyName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Phone)
+                                        </th>
+                                   
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model) {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CompanyName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Phone)
+                                            </td>
+                                          
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.ShipperId">Edit</a> |
+                                                <a asp-action="Details" asp-route-id="@item.ShipperId">Details</a> |
+                                                <a asp-action="Delete" asp-route-id="@item.ShipperId">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.CompanyName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Phone)
+                                        </th>
+                                       
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="~/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/plugins-init/datatables.init.js"></script>
+</body>

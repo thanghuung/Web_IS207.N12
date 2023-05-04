@@ -1,0 +1,73 @@
+﻿@page
+@model ExternalLoginsModel
+@{
+    ViewData["Title"] = "Phương thức đăng nhập";
+    ViewData["ActivePage"] = ManageNavPages.ExternalLogins;
+}
+<partial name="_StatusMessage" for="StatusMessage" />
+    <div class="row">
+        <div class="col-md-3">
+            <div>
+                <partial name="_ManageNav" />
+            </div>
+        </div>
+        <div  class="col-md-9">
+        <div>
+            @if (Model.CurrentLogins?.Count > 0)
+            {
+                <h4>Registered Logins</h4>
+                <table class="table">
+                    <tbody>
+                        @foreach (var login in Model.CurrentLogins)
+                        {
+                            <tr>
+                                <td id="@($"login-provider-{login.LoginProvider}")">@login.ProviderDisplayName</td>
+                                <td>
+                                    @if (Model.ShowRemoveButton)
+                                    {
+                                        <form id="@($"remove-login-{login.LoginProvider}")" asp-page-handler="RemoveLogin" method="post">
+                                            <div>
+                                                <input asp-for="@login.LoginProvider" name="LoginProvider" type="hidden" />
+                                                <input asp-for="@login.ProviderKey" name="ProviderKey" type="hidden" />
+                                                <button type="submit" class="btn btn-primary" title="Remove this @login.ProviderDisplayName login from your account">Remove</button>
+                                            </div>
+                                        </form>
+                                    }
+                                    else
+                                    {
+                                        @: &nbsp;
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            @if (Model.OtherLogins?.Count > 0)
+            {
+                <h4>Thêm phương thức đăng nhập</h4>
+                <form id="link-login-form" asp-page-handler="LinkLogin" method="post" class="form-horizontal">
+                    <div id="socialLoginList">
+                        <div class="exlogin">
+                            @foreach (var provider in Model.OtherLogins)
+                            {
+                                if (provider.Name == "Google")
+                                {
+                                    <div>
+                                        <button id="@($"link-login-button-{provider.Name}")" type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Đăng nhập bằng tài khoản @provider.DisplayName"><i class="bi bi-google"></i> @provider.DisplayName</button>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div>
+                                        <button id="@($"link-login-button-{provider.Name}")" type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Đăng nhập bằng tài khoản @provider.DisplayName"><i class="bi bi-facebook"></i> @provider.DisplayName</button>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </form>
+            }
+        </div>
+        </div>
+   </div>

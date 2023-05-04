@@ -1,0 +1,99 @@
+﻿@model IEnumerable<WEB2.Models.Staff>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<head>
+    <!-- Datatable -->
+    <link href="~/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+
+
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Nhân sự</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Nhân viên</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- row -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <a asp-action="Create" > <h4 class ="btn btn-outline-primary">Thêm nhân viên</h4></a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Mã nhân viên
+                                        </th>
+                                        <th>
+                                            Tên nhân viên
+                                        </th>
+
+                                        <th>
+                                            Ngày vào làm
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model) {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.StaffId)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.AppUser.FullName)
+                                            </td>
+
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.WorkingDay)
+                                            </td>
+                                            <td>
+
+                                                <a asp-action="Details" asp-route-id="@item.StaffId">Details</a> |
+                                                <a asp-action="Delete" asp-route-id="@item.StaffId">Delete</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="~/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/plugins-init/datatables.init.js"></script>
+</body>

@@ -1,0 +1,28 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.eot');
+    src: url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.woff') format('woff'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+.phuongthucthanhtoan {
+    margin: 30px !important;
+    padding: 20px !important;
+    border-radius: 30px;
+    font-size: 16px;
+    border: 0.5px solid rgb(60 64 67 / 17.5%);
+}
+    .tr {
+        color: #000 !important;
+    }
+
+.labels{
+    background-color: #be1e2d;
+    padding: 6px;
+    color: white !important;
+    border-radius: 30px;
+    font-weight: bold;
+}

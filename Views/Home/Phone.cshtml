@@ -1,0 +1,388 @@
+﻿
+@{
+    ViewData["Title"] = "Điện thoại";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles {
+    <link href="@Url.Content("/css/views/home/productlist.css")" rel="stylesheet" type="text/css" />
+}
+<main>
+    <script src="@Url.Content("/js/views/home/productlist.js")"></script>
+    @*1 vài sản phẩm để test bộ lọc  Jquery *@
+    <div class="container" style="justify-content: center">
+        <div class="mb-3">
+            <div class="d-inline">
+                <a class="btn" id="apple"><img src="//cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png" width="90" /></a>
+                <a class="btn" id="samsung"><img src="//cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png" width="90" /></a>
+                <a class="btn" id="xiaomi"><img src="//cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png" width="90" /></a>
+                <a class="btn" id="huawei"><img src="//cdn.tgdd.vn/Brand/1/Huawei522-b_4.jpg" width="90" /></a>
+                <a class="btn" id="nokia"><img src="//cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg" width="90" /></a>
+                <a class="btn" id="oneplus"><img src="https://cdn.tgdd.vn/Brand/1/OnePlus42-b_36.jpg" width="90" /></a>
+                <a class="btn" id="realme"><img src="//cdn.tgdd.vn/Brand/1/Realme42-b_37.png" width="90" /></a>
+                <a class="btn" id="oppo"><img src="//cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg" width="90" /></a>
+                <a class="btn" id="vivo"><img src="//cdn.tgdd.vn/Brand/1/Vivo42-b_50.jpg" width="90" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="filtering">
+        <div>
+            <h4></h4>
+        </div>
+    </div>
+    <div class="highlight">
+        @*@for (int i = 0; i < 52; i++)
+            {*@
+        <div class="displaying">
+            @*class để hiển thị *@
+            <a href="#">
+                <div class="card" id="apple">
+                    @*nhớ add id này để lọc *@
+                    <div class="lbsale"><span class="lbtragop">Trả góp 0%</span></div>
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/VFfOoovEyLn0xzp0H0h3Xmyw2jBCadUohYQ6wAY15bbT6WGtI0EeUFux4MrgR3PKJhgpzvKKoLpqmQJE_tAmK7mzhGn9aSyJfh0ZJ09zDPCwIEsmjPd4YdVFf0bEQA94aNWIbn756mKJPYkOIDNtp4RWKvgOI42AgT47ICRNr2Qm2NAA0rc0gzV9LmPAYHnXKYgEknAngyIcF22YY5_Ubz9hpkK4-Jxo4S0sAz6fylL4KKom_FT_3iEfKQ8ag-9TIuKvlqwmERbkLw5As722vYMvL_hVsAnWkMvYsqt3WFSRZkwRpUk5SGhUTrssFpV57Sl6WAYFZccq4JG2vmIt89dLSkoMqf1N_uXBTr3DU2IKG1F-MCclv7qpOUSZi1OnLli8WCjX5zoX14Xv5dWACUN1lvl4ZW9AkwmdOd_0u0PS_j6Zx2RCgxsvwj9Rw2NA1uHlHGlyPCF576c4xI1oMHRbPTPjfQJlc2lxkkBDUZTYtOwmjCxKLDRTUhhaMi415TOM4x-V6_zvxr3N2MoOxhir1iF7VoLBWbhExIAnqb2-FdkVVh_7WT3AOzZrmAgJypA21stwLAr--V3G4oC8MQRyphNOSOETB7PiPlc25VT7Pitkb4WX4fSsm6fRcptop8BT8twulk5j_7M_Lh4qKkYYUODjGyQa-OLEi0kVK225mQMgVjy3kB-gHO9FE0JD2zVO3NkrXEGTfd5r74UCt45G=s600-no?authuser=1" alt="Iphone 13 Pro Max">
+                    <div class="card-body">
+                        <h5 class="card-title">Iphone 13 Pro Max 128GB</h5>
+                        <h5 class="card-title pricesale m-0">33.990.000</h5>
+                        <h6 class="card-title price text-muted mt-1">35.990.000</h6>
+                        <div>
+                            <p style="display:inline">
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16">
+                                    <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="information">
+                            @*render các thông tin vào thẻ span*@
+                            <ul>
+                                @*màn hình*@
+                                <li id="screen"><p>Màn hình&nbsp<span id="inch">6.7</span>"</p></li>
+                                @*chip*@
+                                <li id="chip"><p>Chip&nbsp<span id="chip-name">Apple A15 Bionic</span></p></li>
+                                @*ram, rom*@
+                                <li id="storage"><p>RAM&nbsp<span id="ram">6</span>&nbspGB,&nbspROM&nbsp<span id="rom">256</span>&nbspGB</p></li>
+                                @*camera trước*@
+                                <li id="front-cam"><p>Camera trước:&nbsp<span id="cam1">12</span>&nbspMP</p></li>
+                                @*camera sau*@
+                                <li id="back-cam"><p>Camera sau:&nbsp<span id="cam2">12</span>&nbspMP</p></li>
+                                @*pin*@
+                                <li id="battery"><p>Pin&nbsp<span id="capacity">4352</span>&nbspmAh</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="displaying">
+            <a href="#">
+                <div class="card" id="samsung">
+                    <div class="lbsale"><span class="lbtragop">Trả góp 0%</span></div>
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/pw/AM-JKLUvEOrhGakavFdLczGH0n04BmWNbKaMGyWVGmiRAL_wObagvnshHtMJmeNkzXL3eAUECRsrOcmePym2uIawdQ_C47QuAg_Z4gpYVgUbXlqSJpJ4msTusuINda8wOogpFQ8X-xm7lAdrMdR0-0i7oIs7=s600-no?authuser=1" alt="Samsung Galaxy Z Flip3 5G 256GB">
+                    <div class="card-body">
+                        <h5 class="card-title">Samsung Galaxy Z Flip3 5G 256GB</h5>
+                        <h5 class="card-title pricesale m-0">26.990.000</h5>
+                        <h6 class="card-title price text-muted mt-1">28.990.000</h6>
+                        <div>
+                            <p style="display:inline">
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16">
+                                    <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="information">
+                            <ul>
+                                <li id="screen"><p>Màn hình&nbsp<span id="inch">6.7</span>"</p></li>
+                                <li id="chip"><p>Chip&nbsp<span id="chip-name">Snapdragon 888</span></p></li>
+                                <li id="storage"><p>RAM&nbsp<span id="ram">8</span>&nbspGB,&nbspROM&nbsp<span id="rom">256</span>&nbspGB</p></li>
+                                <li id="front-cam"><p>Camera trước:&nbsp<span id="cam1">10</span>&nbspMP</p></li>
+                                <li id="back-cam"><p>Camera sau:&nbsp<span id="cam2">12</span>&nbspMP</p></li>
+                                <li id="battery"><p>Pin&nbsp<span id="capacity">3300</span>&nbspmAh</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="displaying">
+            <a href="#">
+                <div class="card" id="xiaomi">
+                    <div class="lbsale"><span class="lbtragop">Trả góp 0%</span></div>
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/pw/AM-JKLWqeHTcHNI28VgrhNredBPlkZ4FX2eGdPT8q3XJsAC_t15S5DLwIHBmvKBP30IH_NcRWoikisacMJEdLKaTCzgSPygLSbOvcr0e1UqOzfflmBu7vuCC3QXAKY7kDB1JNNwFZ-KNCE8-TRZ8BR5xh0P4=s600-no?authuser=1" alt="Xiaomi 11T 5G 128GB">
+                    <div class="card-body">
+                        <h5 class="card-title">Xiaomi 11T 5G 128GB</h5>
+                        <h5 class="card-title pricesale m-0">10.490.000</h5>
+                        <h6 class="card-title price text-muted mt-1">10.990.000</h6>
+                        <div>
+                            <p style="display:inline">
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16">
+                                    <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="information">
+                            <ul>
+                                <li id="screen"><p>Màn hình&nbsp<span id="inch">6.67</span>"</p></li>
+                                <li id="chip"><p>Chip&nbsp<span id="chip-name">Mediatek Dimensity 1200</span></p></li>
+                                <li id="storage"><p>RAM&nbsp<span id="ram">8</span>&nbspGB,&nbspROM&nbsp<span id="rom">128</span>&nbspGB</p></li>
+                                <li id="front-cam"><p>Camera trước:&nbsp<span id="cam1">16</span>&nbspMP</p></li>
+                                <li id="back-cam"><p>Camera sau:&nbsp<span id="cam2">108</span>&nbspMP</p></li>
+                                <li id="battery"><p>Pin&nbsp<span id="capacity">5000</span>&nbspmAh</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="displaying">
+            <a href="#">
+                <div class="card" id="oppo">
+                    <div class="lbsale"><span class="lbtragop">Trả góp 0%</span></div>
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/pw/AM-JKLUmrNJAL3Ua9Gihu2VGP3wopDtYXHBsH0zm63ImJXWO1nTX424LLOKz56CmV2RFQFdeBzHzCu2ljv8nPb3YHwjwBQj5NYTibqvuNOnnuXBXj7dwBtd3606vnNEFnuDy9ugOOPlxfPW5QQM1MblXy1me=s600-no?authuser=1" alt="OPPO Reno6 Z 5G">
+                    <div class="card-body">
+                        <h5 class="card-title">OPPO Reno6 Z 5G</h5>
+                        <h5 class="card-title pricesale m-0">9.490.000</h5>
+                        <h6 class="card-title price text-muted mt-1">10.490.000</h6>
+                        <div>
+                            <p style="display:inline">
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16">
+                                    <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="information">
+                            <ul>
+                                <li id="screen"><p>Màn hình&nbsp<span id="inch">6.43</span>"</p></li>
+                                <li id="chip"><p>Chip&nbsp<span id="chip-name">Mediatek Dimensity 800U 5G</span></p></li>
+                                <li id="storage"><p>RAM&nbsp<span id="ram">8</span>&nbspGB,&nbspROM&nbsp<span id="rom">128</span>&nbspGB</p></li>
+                                <li id="front-cam"><p>Camera trước:&nbsp<span id="cam1">32</span>&nbspMP</p></li>
+                                <li id="back-cam"><p>Camera sau:&nbsp<span id="cam2">64</span>&nbspMP</p></li>
+                                <li id="battery"><p>Pin&nbsp<span id="capacity">4310</span>&nbspmAh</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="displaying">
+            <a href="#">
+                <div class="card" id="realme">
+                    <div class="lbsale"><span class="lbtragop">Trả góp 0%</span></div>
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/pw/AM-JKLUOYbdQky9PsSUJgZKIV4o7coeFWcfdUAoPaAOm2524Lr5SY2Lt3rIl0bpgVB5eS9c_hST0inaQMx6FeYvVhPeaTKTdyP_-yRF1C7TviLjY3XOs8-uNdIp_7KZO7_DW0CFeFFnJJrPlNp1Z6_ID2Ddg=s600-no?authuser=1" alt="Realme C21Y 4GB">
+                    <div class="card-body">
+                        <h5 class="card-title">Realme C21Y 4GB</h5>
+                        <h5 class="card-title pricesale m-0">3.990.000</h5>
+                        <h6 class="card-title price text-muted mt-1">4.290.000</h6>
+                        <div>
+                            <p style="display:inline">
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16">
+                                    <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="information">
+                            <ul>
+                                <li id="screen"><p>Màn hình&nbsp<span id="inch">6.5</span>"</p></li>
+                                <li id="chip"><p>Chip&nbsp<span id="chip-name">Spreadtrum T610 8 nhân</span></p></li>
+                                <li id="storage"><p>RAM&nbsp<span id="ram">4</span>&nbspGB,&nbspROM&nbsp<span id="rom">64</span>&nbspGB</p></li>
+                                <li id="front-cam"><p>Camera trước:&nbsp<span id="cam1">5</span>&nbspMP</p></li>
+                                <li id="back-cam"><p>Camera sau:&nbsp<span id="cam2">13</span>&nbspMP</p></li>
+                                <li id="battery"><p>Pin&nbsp<span id="capacity">5000</span>&nbspmAh</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="displaying">
+            <a href="#">
+                <div class="card" id="oneplus">
+                    <div class="lbsale"><span class="lbtragop">Trả góp 0%</span></div>
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/pw/AM-JKLWqUTPYU7jJ57IyvgxJPt-MDrgIiFcddPfgABc78zZvHBzdL2SoEumebQuY7CFu_Qh8ky4XCvOSEhmGC4zcZUlelvtzGsSSPL1Fe61Eksm5m_egM3hKR-fNiCILVPXawhBtEmiIwHDWHRSNQFdvKjPG=s600-no?authuser=1" alt="OnePlus Nord N10 5G">
+                    <div class="card-body">
+                        <h5 class="card-title">OnePlus Nord N10 5G</h5>
+                        <h5 class="card-title pricesale m-0">7.990.000</h5>
+                        <h6 class="card-title price text-muted mt-1">5.990.000</h6>
+                        <div>
+                            <p style="display:inline">
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-half" viewBox="0 0 16 16">
+                                    <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="information">
+                            <ul>
+                                <li id="screen"><p>Màn hình&nbsp<span id="inch">6.49</span>"</p></li>
+                                <li id="chip"><p>Chip&nbsp<span id="chip-name">Snapdragon 690</span></p></li>
+                                <li id="storage"><p>RAM&nbsp<span id="ram">6</span>&nbspGB,&nbspROM&nbsp<span id="rom">128</span>&nbspGB</p></li>
+                                <li id="front-cam"><p>Camera trước:&nbsp<span id="cam1">16</span>&nbspMP</p></li>
+                                <li id="back-cam"><p>Camera sau:&nbsp<span id="cam2">64</span>&nbspMP</p></li>
+                                <li id="battery"><p>Pin&nbsp<span id="capacity">4300</span>&nbspmAh</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="displaying">
+            <a href="#">
+                <div class="card" id="nokia">
+                    <div class="lbsale"><span class="lbtragop">Trả góp 0%</span></div>
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/pw/AM-JKLUhX2vUOm6_6XMsj5MqeH3dowskNhn8DuwEamHWT3Vqn7YZgkHjDgAhOM_WfFT3AHwehv2Q11uF03Yf1hM3atRiM3duIP6eZUMEKo4s1yRL6Ec9chEWAnMMGIrCjS1RgnIaOtJIBMWTLSNEcOF1iQcr=s600-no?authuser=1" alt="Nokia 3.4">
+                    <div class="card-body">
+                        <h5 class="card-title">Nokia 3.4</h5>
+                        <h5 class="card-title pricesale m-0">3.290.000</h5>
+                        <h6 class="card-title price text-muted mt-1">3.790.000</h6>
+                        <div>
+                            <p style="display:inline">
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="information">
+                            <ul>
+                                <li id="screen"><p>Màn hình&nbsp<span id="inch">6.39</span>"</p></li>
+                                <li id="chip"><p>Chip&nbsp<span id="chip-name">Snapdragon 460</span></p></li>
+                                <li id="storage"><p>RAM&nbsp<span id="ram">4</span>&nbspGB,&nbspROM&nbsp<span id="rom">64</span>&nbspGB</p></li>
+                                <li id="front-cam"><p>Camera trước:&nbsp<span id="cam1">8</span>&nbspMP</p></li>
+                                <li id="back-cam"><p>Camera sau:&nbsp<span id="cam2">13</span>&nbspMP</p></li>
+                                <li id="battery"><p>Pin&nbsp<span id="capacity">4000</span>&nbspmAh</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="displaying">
+            <a href="#">
+                <div class="card" id="vivo">
+                    <div class="lbsale"><span class="lbtragop">Trả góp 0%</span></div>
+                    <img class="card-img-top" src="https://lh3.googleusercontent.com/pw/AM-JKLV9IjvwgmV55dIX0XzguVG9bvIN-lW0IPodmFxERARumKpspl-Gkn5ed3OaWhDgkFhzsyfeiCLw6XwyIWL56ZhcvRRmhoHVkZ2aVv693TFCdS13Xa61UwBrkqHxE1bI6P4_hGDIfYY4m7pSc2yHU7H6=s600-no?authuser=1" alt="Vivo Y21">
+                    <div class="card-body">
+                        <h5 class="card-title">Vivo Y21</h5>
+                        <h5 class="card-title pricesale m-0">4.290.000</h5>
+                        <h6 class="card-title price text-muted mt-1">4.790.000</h6>
+                        <div>
+                            <p style="display:inline">
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                </svg>
+                                <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                </svg>
+                            </p>
+                        </div>
+                        <div class="information">
+                            <ul>
+                                <li id="screen"><p>Màn hình&nbsp<span id="inch">6.51</span>"</p></li>
+                                <li id="chip"><p>Chip&nbsp<span id="chip-name">MediaTek Helio P35</span></p></li>
+                                <li id="storage"><p>RAM&nbsp<span id="ram">4</span>&nbspGB,&nbspROM&nbsp<span id="rom">64</span>&nbspGB</p></li>
+                                <li id="front-cam"><p>Camera trước:&nbsp<span id="cam1">8</span>&nbspMP</p></li>
+                                <li id="back-cam"><p>Camera sau:&nbsp<span id="cam2">13</span>&nbspMP</p></li>
+                                <li id="battery"><p>Pin&nbsp<span id="capacity">5000</span>&nbspmAh</p></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @*}*@
+    </div>
+</main>
+<script>
+    $(document).ready(function () {
+        $("#phone").css({ "background-color": "white", "color": "#be1e2d"})
+    });
+</script>
+

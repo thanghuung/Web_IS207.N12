@@ -1,0 +1,223 @@
+﻿@model WEB2.Models.PurchaseDetail
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <link href="~/css/style.css" rel="stylesheet">
+
+    <script type="text/javascript">
+          var product = [];
+          var price = [];
+          var quantity = [];
+          var total = 0;
+        $(document).ready(function () {
+          // Denotes total number of rows
+          var rowIdx = 0;
+
+
+          // jQuery button click event to add a row
+          $("#addBtn").on("click", function () {
+            // Adding a row inside the tbody.
+            $("#tbody").append(
+              `<tr id="R${++rowIdx}">
+                   <td class="row-index text-center">
+                   <p> ${rowIdx}</p>
+                   </td>
+                   <td class= "text-center">
+        @{
+                              <select  class="form-control" asp-items="ViewBag.ProductId" id="pro${rowIdx}"></select>
+
+        }
+                     </td>
+                   <td class= "text-center">
+        @{
+                <input type = "text" class="form-control" id="pri${rowIdx}"/>
+        }
+                      </td>
+                   <td class= "text-center">
+        @{
+                <input class="form-control" type="text" id="qua${rowIdx}" />
+        }
+                      </td>
+                   <td class= "text-center">
+                      <p id="tol${rowIdx}"></p>
+                      </td>
+                    <td class="text-center">
+                      <button class="btn btn-danger remove"
+                        type="button">Remove</button>
+                      </td>
+                    </tr>`
+            );
+            $(`#qua${rowIdx}`).change(function(){
+                var pri = $(`#pri${rowIdx}`).val();
+                var qua = $(`#qua${rowIdx}`).val();
+                var name = $(`#pro${rowIdx}`).val();
+                   //  $(`#tol${rowIdx}`).val(pri * qua);
+                   document.getElementById(`tol${rowIdx}`).innerHTML = pri * qua;
+                   total +=pri * qua;
+
+                   document.getElementById("pay").innerHTML = total;
+
+                   product.push(name);
+                   price.push(pri);
+                   quantity.push(qua);
+
+            });
+
+            $('#sub').click(function(){
+              var suppierid = $('#supplierid').val();
+               var inven = $('#invenid').val();
+              var model = new Object();
+              model.Productid = product;
+              model.Price = price;
+              model.Quantity = quantity;
+              model.Paid = total;
+              model.SupplierId = suppierid;
+                model.InvenId = inven;
+              console.log(model);
+              jQuery.ajax({
+              type: "POST",
+              url: "@Url.Action("CreateBill","PurchaseDetails")",
+              dataType: "json",
+              contentType: "application/json; charset=utf-8",
+              data: JSON.stringify( model ),
+              processData: true,
+              cache: false,
+                  }).done(function(data){
+                     alert("Tạo phiếu mua hàng thành công");
+                     window.location.replace(data.newUrl);
+                  });
+               });
+
+
+
+          });
+
+          // jQuery button click event to remove a row.
+          $("#tbody").on("click", ".remove", function () {
+            // Getting all the rows next to the row
+            // containing the clicked button
+            var child = $(this).closest("tr").nextAll();
+
+            // Iterating across all the rows
+            // obtained to change the index
+            child.each(function () {
+              // Getting <tr> id.
+              var id = $(this).attr("id");
+
+              // Getting the <p> inside the .row-index class.
+              var idx = $(this).children(".row-index").children("p");
+
+              // Gets the row number from <tr> id.
+              var dig = parseInt(id.substring(1));
+
+              // Modifying row index.
+              idx.html(`${dig - 1}`);
+
+              // Modifying row id.
+              $(this).attr("id", `R${dig - 1}`);
+            });
+
+            // Removing the current row.
+            $(this).closest("tr").remove();
+
+            // Decreasing total number of rows by 1.
+            rowIdx--;
+          });
+
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Thêm nhà cung cấp</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Quản lý mua hàng</a></li>
+                    <li class="breadcrumb-item active"><a asp-action="Requests">Yêu cầu báo giá</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Tạo mới</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+     
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <label class="control-label">Chọn nhà cung cấp</label>
+                            <select class="form-control" asp-items="ViewBag.SupplierId" id="supplierid"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <label class="control-label">Chọn Kho</label>
+                            <select class="form-control" asp-items="ViewBag.InventoryId" id="invenid"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive card">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">STT</th>
+                            <th class="text-center">Sản phẩm</th>
+                            <th class="text-center">Giá</th>
+                            <th class="text-center">Số lượng</th>
+                            <th class="text-center">Thanh toán</th>
+                            <th class="text-center">Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody"></tbody>
+                </table>
+            </div>
+            <div>
+                <button class="btn btn-md btn-primary" id="addBtn" type="button">
+                    Thêm sản phẩm
+                </button>
+                <div class="float-right">
+                    <h4 class="text-primary "> Tổng: <span id="pay"></span> <span>VND</span></h4>
+
+                    <button class="btn btn-success" id="sub" type="button">
+                        Mua hàng
+                    </button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+
+
+</body>
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}
+

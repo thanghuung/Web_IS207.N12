@@ -1,0 +1,321 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WEB2.Models
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TechN</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" type="text/css" href="/css/site.css?/Version=1" />*@
+    <link href="@Url.Content("/css/site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/lib/jquery/dist/jquery.min.js")"></script>
+    <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap.bundle.min.js")"></script>
+    <link href="~/css/style2.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <a id="btn-to-top">
+        <svg  xmlns="http://www.w3.org/2000/svg" @*fill="currentColor"*@ class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+        </svg>
+    </a>
+     
+
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white topnav">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <p class="logo mb-0">Tech<span style="color: #be1e2d">N</span></p>
+                </a>
+                <form id="f_search" method="get" asp-area="" asp-controller="Home" asp-action="Search" style="width: 40%" >
+                    <div class="input-group mb-0" style="width: 100%">
+                        <input id="ipt_search" type="text" class="form-control" name="searchString" placeholder="Sản phẩm bạn muốm tìm ?" aria-label="search" aria-describedby="basic-addon2" />
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">
+                                <i class='bx bx-search'></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </form>
+
+                @await Html.PartialAsync("_LoginPartial")
+    </div>
+        </nav>
+    </header>
+    <div class="sub-nav">
+        <div class="container navbar sub-nav-item">
+            <ul class="nav justify-content-center" style="margin: auto">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Phone" id="phone"><i class="bi bi-phone-fill"></i> ĐIỆN THOẠI</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div>
+                            <a class="dropdown-item"><strong>THƯƠNG HIỆU</strong></a>
+                            <ul class="nav" style="width: 300px;">
+                                <li class="nav-item"><a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Category" asp-route-id="7"><img src="//cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png" width="90" /></a></li>
+                                <li class="nav-item"><a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Category" asp-route-id="8"><img src="//cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png" width="90" /></a></li>
+                                <li class="nav-item"><a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Category" asp-route-id="9"><img src="//cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png" width="90" /></a></li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Category" asp-route-id="10"><img src="//cdn.tgdd.vn/Brand/1/Vivo42-b_50.jpg" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Category" asp-route-id="12"><img src="https://cdn.tgdd.vn/Brand/1/OnePlus42-b_36.jpg" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Category" asp-route-id="13"><img src="//cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Products" asp-action="Category" asp-route-id="14"><img src="//cdn.tgdd.vn/Brand/1/Realme42-b_37.png" width="90" /></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Laptop" id="laptop"><i class="bi bi-laptop-fill" id="laptop"></i> LAPTOP</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div>
+                            <a class="dropdown-item"><strong>THƯƠNG HIỆU</strong></a>
+                            <ul class="nav" style="width: 300px;">
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="16"><img src="https://cdn.tgdd.vn/Brand/1/logo-macbook-149x40.png" width="90" /></a></li>
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="17"><img src="https://cdn.tgdd.vn/Brand/1/logo-asus-149x40.png" width="90" /></a></li>
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="18"><img src="https://cdn.tgdd.vn/Brand/1/logo-acer-149x40.png" width="90" /></a></li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="19"><img src="https://cdn.tgdd.vn/Brand/1/logo-dell-149x40.png" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="20"><img src="https://cdn.tgdd.vn/Brand/1/logo-lenovo-149x40.png" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="21"><img src="https://cdn.tgdd.vn/Brand/1/logo-hp-149x40-1.png" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="22"><img src="https://cdn.tgdd.vn/Brand/1/logo-msi-149x40.png" width="90" /></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Tablet" id="tablet"><i class="bi bi-tablet-landscape-fill" id="tablet"></i> TABLET</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div>
+                            <a class="dropdown-item"><strong>THƯƠNG HIỆU</strong></a>
+                            <ul class="nav" style="width: 300px;">
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="23"><img src="https://cdn.tgdd.vn/Brand/1/iPad-(Apple)522-b_4.jpg" width="90" /></a></li>
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="24"><img src="https://cdn.tgdd.vn/Brand/1/samsungnew-220x48-3.png" width="90" /></a></li>
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="26"><img src="https://cdn.tgdd.vn/Brand/1/Huawei522-b_4.jpg" width="90" /></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Sound" id="sound"><i class="bi bi-earbuds" id="sound"></i> ÂM THANH</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div>
+                            <a class="dropdown-item"><strong>THƯƠNG HIỆU</strong></a>
+                            <ul class="nav" style="width: 320px;">
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="44"><img src="https://cdn.tgdd.vn/Brand/1/Apple9499-b_28.jpg" width="90" /></a></li>
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="39"><img src="https://cdn.tgdd.vn/Brand/1/LG54-b_17.png" width="90" /></a></li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="58"><img src="https://cdn.tgdd.vn/Brand/1/Jabra54-b_17.jpg" width="90" /></a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="59"><img src="https://cdn.tgdd.vn/Brand/1/Mozard54-b_35.jpg" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="60"><img src="//cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="67"><img src="https://cdn.tgdd.vn/Brand/1/Belkin54-b_57.jpg" width="90" /></a>
+                                </li>
+                            </ul>
+                        </div>
+                        @*                        <div>
+                            <a class="dropdown-item"><strong>TAI NGHE</strong></a>
+                            <ul class="nav" style="width:300px">
+                            <li class="nav-item"><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Sony</a></li>
+                            <li class="nav-item"><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">JBL</a></li>
+                            <li class="nav-item"><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">AKG</a></li>
+                            <li class="nav-item">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Apple AirPods</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Energizer</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Huawei</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">LG</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Samsung</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Beats</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Nokia</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Pisen</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Index">Motorola</a>
+                            </li>
+                            </ul>
+                            </div>*@
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Accessories" id="accessories"><i class="bi bi-sd-card-fill" id="accessories"></i> PHỤ KIỆN</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div>
+                            <a class="dropdown-item"><strong>THƯƠNG HIỆU</strong></a>
+                            <ul class="nav" style="width: 280px;">
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="46"><img src="https://cdn.tgdd.vn/Brand/1/Apple9499-b_28.jpg" width="90" /></a></li>
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="54"><img src="https://cdn.tgdd.vn/Brand/1/220-48-220x48-13.jpg" width="90" /></a></li>
+                                <li class="nav-item"><a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="61"><img src="https://cdn.tgdd.vn/Brand/1/Rapoo86-s56-160x40-2.png" width="90" /></a></li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="62"><img src="https://cdn.tgdd.vn/Brand/1/logo-hyperx-1-220x48-1.jpg" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="63"><img src="https://cdn.tgdd.vn/Brand/1/Logitech86-b_41.jpg" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="65"><img src="https://cdn.tgdd.vn/Brand/1/Energizer57-b_50.jpg" width="90" /></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" asp-controller="Products" asp-action="Category" asp-route-id="66"><img src="https://cdn.tgdd.vn/Brand/1/Xmobile57-b_42.jpg" width="90" /></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <main role="main" class="py-4 layoutmain" >
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted " style="bottom: auto; position:absolute;">
+        <div class="container pt-4 pb-4">
+            <h6 style="color: white" class="mt-1">Công ty TNHH Thương mại TechN</h6>
+            <div class="row">
+                <div class="col-md-3 col-sm6 sub">
+                    <p>Thông tin</p>
+                    @*<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+                    <a class="nav-item" href="/about">Giới thiệu</a>
+                    <a class="nav-item" href="/work"> Tuyển dụng</a>
+                </div>
+                <div class="col-md-3 col-sm6 sub">
+                    <p>Chính sách</p>
+                    @*<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+                    <a class="nav-item" @*href="./home/Insurance"*@>Chính sách bảo hành</a>
+                    <a class="nav-item" @*href="./home/Refund"*@>Chính sách đổi trả</a>
+                    <a class="nav-item" @*href="./home/Delivery"*@>Chính sách vận chuyển</a>
+                    <a class="nav-item" @*href="./home/Privacy"*@>Chính sách bảo mật</a>
+                    <a class="nav-item" @*href="./home/Installment*@">Chính sách trả góp</a>
+                </div>
+                <div class="col-md-3 col-sm6 sub">
+                    <p>Liên hệ</p>
+                    @*<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
+                    <a class="nav-item">Tư vấn mua hàng: <strong>1900.3030</strong></a>
+                    <a class="nav-item">Giải quyết khiếu nại: <strong>1900.3033</strong></a>
+                    <a class="nav-item">Dành cho đối tác: <strong>0366.485.663</strong></a>
+                </div>
+                <div class="col-md-3 col-sm-6 sub">
+                    <a class="nav-item"><img src="/img/index/bocongthuong.png" style="width: 60%; height: 60%" /></a>
+                    <br />
+                    <a class="nav-item"><img src="/img/index/paymethod.png" style="width: 60%; height: 60%" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="credit">
+            <div class="container">
+                <p>
+                    <br />Điện thoại: <strong>08.6815.0937</strong>. Email: windnight57@gmai.com
+                    <br /><br />Chịu trách nhiệm nội dung: Nguyen Huu Thang
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function () {
+            var btn = $('#btn-to-top');
+
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 300) {
+                    btn.addClass('show');
+                } else {
+                    btn.removeClass('show');
+                }
+            });
+
+            btn.on('click', function (e) {
+                e.preventDefault();
+                $('html, body').animate({ scrollTop: 0 }, '300');
+            });
+            $('#f_search input').keydown(function (e) {
+                    var searchTerm = $("#ipt_search").val();
+                    if (searchTerm == "" && event.keyCode === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+            });
+            $('#button-addon1').click(function (e){
+                    var searchTerm = $("#ipt_search").val();
+                    if (searchTerm == "") {
+                        e.preventDefault();
+                        return false;
+                    }
+                    else {
+                        $("#f_search").submit();
+                    }
+            })
+        });
+    </script>
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            else {        document.documentElement.setAttribute('data-theme', 'light');
+                  localStorage.setItem('theme', 'light');
+            }
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,161 @@
+﻿@model IEnumerable<WEB2.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <!-- Datatable -->
+    <link href="~/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+
+             
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Quản lý sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Sản phẩm</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- row -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                             
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ProductName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.UnitPrice)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.RawPrice)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.MSRP)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Version)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Color)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Category)
+                                        </th>
+                                     
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model) {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ProductName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UnitPrice)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.RawPrice)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MSRP)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Version)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Color)
+                                            </td>
+
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Category.CategoryId)
+                                            </td>
+                                     
+                                            <td>
+                                                <a asp-action="Recover" asp-route-id="@item.ProductId" class="btn btn-secondary">Khôi phục</a> 
+                                                <a asp-action="Details" asp-area="" asp-controller = "Products" asp-route-id="@item.ProductId" class="btn btn-outline-primary">Details</a> 
+                                  
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ProductName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.UnitPrice)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.RawPrice)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.MSRP)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Version)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Color)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Category)
+                                        </th>
+                               
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="~/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/plugins-init/datatables.init.js"></script>
+</body>

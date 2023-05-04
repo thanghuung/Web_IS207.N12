@@ -1,0 +1,31 @@
+@using Microsoft.AspNetCore.Identity
+@using WEB2.Models
+@using Microsoft.AspNetCore.Authorization
+@inject SignInManager<AppUser> SignInManager
+
+@inject Microsoft.AspNetCore.Authorization.IAuthorizationService authorizationService
+
+@if (SignInManager.IsSignedIn(User)
+&& (await authorizationService.AuthorizeAsync(User, "StaffDropdown")).Succeeded) {
+<style>
+    #admin-item > div > a:hover {
+        background-color: #be1e2d;
+        color: white;
+        transition: 0.3s ease-in;
+    }
+</style>
+<li class="nav-item dropdown header-profile" id="admin-item">
+    <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+        <i class="mdi mdi-account"></i>
+        <span class="ml-2" style="color: #343a40 !important; padding: 0px;"><i class="bi bi-gear"  style="font-size: 18px; vertical-align: middle;"></i>&nbspQuản lý</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right">
+        
+        <a class="dropdown-item" asp-area="Admin" asp-controller = "Dashboards" asp-action = "Dashboard1">
+            <i class='bx bx-slider-alt bx-xs'></i>
+            <span class="ml-2">Trang quản trị </span>
+        </a>
+
+    </div>
+</li>
+}

@@ -1,0 +1,226 @@
+﻿@model IEnumerable<WEB2.Areas.Order.PurchaseOrder>
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+        <link href="~/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+
+        <div class="container-fluid">
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <h4>Hi, welcome back!</h4>
+                    </div>
+                </div>
+                <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Quản lý kho hàng</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Quản lý hàng</a></li>
+                         <li class="breadcrumb-item active"><a href="javascript:void(0)">Điều chuyển hàng</a></li>
+                    </ol>
+                </div>
+            </div>
+               
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Nav tabs -->
+                            <div class="default-tab">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#home">Xuất kho</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#profile">Nhập kho</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#contact">Chuyển kho</a>
+                                    </li>
+                                </ul>
+                     
+                                <div class="tab-content">
+                         
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel">
+                                        <div class="pt-4">
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                          
+                                                    <table id="example" class="display" style="min-width: 845px">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Tên</th>
+                                                                <th>Đơn hàng</th>
+                                                                <th>Sản phẩm</th>
+                                                                <th>Số lượng</th>
+                                                                <th>Kho</th>
+                                                                <th>Tình trạng</th>
+                                                                <th>Duyệt</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                             @foreach (var item in Model) {
+                                                                   @if(item.Type.Equals("accept"))  {
+                                                                <tr>
+                                    
+                                                                    <td>@Html.DisplayFor(model => item.Fullname)</td>
+                                                                    <td><span>@Html.DisplayFor(model => item.OrderId)</span></td>
+                                                                    <td>
+                                                                        <span style="white-space: pre-line;
+}">
+                                                                            @Html.DisplayFor(model => item.ProductName)
+                                                                        </span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <span style="white-space: pre-line;
+}">
+                                                                            @Html.DisplayFor(model => item.Quantity)
+                                                                        </span>
+                                                                    </td>
+                                                                    <td>@Html.DisplayFor(model => item.InvenId)</td>
+                                                                    <td><span class="badge badge-info">@Html.DisplayFor(model => item.Type)</span></td>
+
+                                                                    <td>
+                                                                        <a asp-action="Accept_O" asp-route-id="@item.OrderId" class="btn btn-outline-secondary">Vận chuyển</a>
+                                                                        <a asp-action="Details_O" asp-route-id="@item.OrderId" class="btn btn-outline-primary">Chi tiết</a>
+                                                        
+                                                                    </td>
+                                                                </tr>
+                                                                 }
+                                                               }  
+                                                        </tbody>
+
+                                                  
+                                                    </table>
+                                                    <script type="text/javascript">
+                                                        $("#product").val().replace(/\n/g, '<br/>');
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="profile">
+                                        <div class="pt-4">
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                  
+                                                    <table id="aexample" class="display" style="min-width: 845px;padding: 3rem 0 4rem 0;">
+                                                        <thead>
+                                                            <tr>
+                      
+                                                                <th>Tên công ty</th>
+                                                                <th>Đơn hàng</th>
+                                                                <th>Sản phẩm</th>
+                                                                <th>Số lượng</th>
+                                                                <th>Tình trạng </th>
+                                                                <th>Duyệt</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                     
+                                                        @foreach (var item in Model)
+                                                       {
+                                                           @if (item.Type.Equals("sent")) { 
+                                                      
+                                                            <tr>
+                                                 
+                                                                <td>@Html.DisplayFor(model => item.Fullname)</td>
+                                                                <td><span>@Html.DisplayFor(model => item.OrderId)</span></td>
+                                                                <td>
+                                                                    <span style="white-space: pre-line;
+}">
+                                                                        @Html.DisplayFor(model => item.ProductName)
+                                                                    </span>
+                                                                </td>
+                                                                <td>
+                                                                    <span style="white-space: pre-line;
+}">
+                                                                        @Html.DisplayFor(model => item.Quantity)
+                                                                    </span>
+                                                                </td>
+
+
+
+                                                                <td><span class="badge badge-info">@Html.DisplayFor(model => item.Type)</span></td>
+
+
+
+                                                                <td>
+                                                                    <a asp-action="Accept_P" asp-route-id="@item.OrderId" class="btn btn-outline-secondary">Nhận hàng</a>
+                                                                    <a asp-action="Details_P" asp-route-id="@item.OrderId" class="btn btn-outline-primary">Chi tiết</a>
+
+                                                                </td>
+                                                            </tr>
+                                                        }
+                                                        }
+                                                    </tbody>
+
+                                                    </table>
+                                                    <script type="text/javascript">
+                                                        $("#product").val().replace(/\n/g, '<br/>');
+
+                                                    </script>
+         
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                                    <div class="tab-pane fade" id="contact">
+                                        <div class="pt-4">
+                                            
+                                        </div>
+                                    </div> 
+         
+                                </div>
+                            </div>   
+                        </div>  
+                    </div>
+                </div>
+                            
+            </div>
+             
+        </div>
+
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+
+        <!-- Datatable -->
+    <script src="~/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/plugins-init/datatables.init.js"></script>
+     <script type= "text/javascript">
+          (function($) {
+        "use strict"
+        //example 1
+        var table = $('#aexample').DataTable({
+            createdRow: function ( row, data, index ) {
+               $(row).addClass('selected')
+            } 
+        });
+          
+        table.on('click', 'tbody tr', function() {
+        var $row = table.row(this).nodes().to$();
+        var hasClass = $row.hasClass('selected');
+        if (hasClass) {
+            $row.removeClass('selected')
+        } else {
+            $row.addClass('selected')
+        }
+        })
+        
+        table.rows().every(function() {
+        this.nodes().to$().removeClass('selected')
+        });
+    
+    
+    
+      
+    })(jQuery);
+      </script>
+
+</body>

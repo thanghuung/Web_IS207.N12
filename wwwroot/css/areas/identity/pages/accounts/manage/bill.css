@@ -1,0 +1,110 @@
+﻿table {
+    border-collapse: collapse;
+    border-radius: 10px !important;
+    border-style: hidden; /* hide standard table (collapsed) border */
+    box-shadow: rgb(60 64 67 / 10%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px; /* this draws the table border  */
+    margin-top: 10px;
+}
+
+
+
+    table tr:first-child th:first-child {
+        border-top-left-radius: 10px;
+    }
+
+    table tr:first-child th:last-child {
+        border-top-right-radius: 10px;
+    }
+
+    table tr:last-child td:first-child {
+        border-top-right-radius: 10px !important;
+    }
+
+    table tr:last-child td:last-child {
+        border-bottom-right-radius: 10px;
+    }
+
+th {
+    background: #be1e2d;
+    color: white;
+}
+
+th, td {
+    padding: 1em;
+    border-bottom: 0.5px solid rgb(60 64 67 / 17.5%);
+}
+tr > td {
+    vertical-align: middle !important;
+}
+td img {
+    height: 50%;
+    width: 50%;
+}
+    tr > td:first-child {
+        text-align: center;
+        width: 10%;
+    }
+.tbl a {
+    color: black;
+}
+
+    .tbl a:link {
+        text-decoration: none;
+    }
+
+/* visited link */
+    .tbl a:visited {
+        text-decoration: none;
+    }
+
+/* mouse over link */
+    .tbl a:hover {
+        text-decoration: none;
+    }
+
+/* selected link */
+    .tbl a:active {
+        text-decoration: none;
+    }
+.iddonhang > span {
+    background-color: white;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: black;
+    border-radius: 30px 30px 30px 30px;
+}
+.price, .total {
+    font-weight: bold;
+}
+.text-right{
+    margin-top:10px;
+    margin-right: 23px;
+}
+.result-pannel > div span {
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: black;
+    font-weight: bold;
+    border-radius: 30px 30px 30px 30px;
+}
+.result-pannel > div:last-child span {
+    background-color: #FFC0C7;
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: black;
+    font-weight: bold;
+    border-radius: 30px 30px 30px 30px;
+}
+.text-right1 {
+    width: 100px;
+}
+.result-pannel > .text-right > .text-right {
+    display: inline-block !important;
+}
+

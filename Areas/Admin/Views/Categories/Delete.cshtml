@@ -1,0 +1,71 @@
+﻿@model WEB2.Models.Category
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<head>
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Bạn có chắc muốn xóa không?</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Quản lý sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a asp-action="Index">Danh mục</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Xóa</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- row -->
+
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CategoryName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Active)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Active)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Picture)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Picture)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ParentCategory)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ParentCategory.CategoryName)
+            </dd>
+        </dl>
+    </div>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CategoryId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-outline-dark">Trở về</a>
+    </form>
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+</body>

@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<title>@ViewBag.Title</title>
+
+<fieldset>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <div id="map" style="width:100%;height:700px"></div>
+    <script>
+
+        function myMap() {
+ 
+            var mapCanvas = document.getElementById("map");
+          
+              var myCenter = new google.maps.LatLng(10.790341, 106.704880);
+              var mykho2 =  new google.maps.LatLng( 10.738621, 106.711293);
+              var mykho3 = new google.maps.LatLng(10.850675, 106.763314);
+              var mykho4 = new google.maps.LatLng(10.782741, 106.769253);
+              var mykho5 = new google.maps.LatLng(10.754321, 106.678593);
+              var mykho6 = new google.maps.LatLng(10.736036, 106.648549);
+              var mykho7 = new google.maps.LatLng(10.846407, 106.789790);
+              var mykho8 = new google.maps.LatLng(10.776966, 106.686712);
+              var mykho10 = new google.maps.LatLng(21.023586, 105.843598);
+              var mykho14 = new google.maps.LatLng(16.061717, 108.217420); 
+              var mykho15 = new google.maps.LatLng(16.026661, 108.188249);    
+            var mapOptions = {
+                center: new google.maps.LatLng(10.790341, 106.704880),
+                zoom: 18,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map(mapCanvas, mapOptions);
+             var marker = new google.maps.Marker({ position: myCenter });
+            marker.setMap(map);
+               marker = new google.maps.Marker({ position: mykho2 });
+            marker.setMap(map);
+                  marker = new google.maps.Marker({ position: mykho3 });
+            marker.setMap(map);
+                  marker = new google.maps.Marker({ position: mykho4 });
+            marker.setMap(map);
+                  marker = new google.maps.Marker({ position: mykho5 });
+            marker.setMap(map);
+                  marker = new google.maps.Marker({ position: mykho6 });
+            marker.setMap(map);
+                  marker = new google.maps.Marker({ position: mykho7 });
+            marker.setMap(map);
+                  marker = new google.maps.Marker({ position: mykho8 });
+            marker.setMap(map);
+                  marker = new google.maps.Marker({ position: mykho10 });
+            marker.setMap(map);
+                  marker = new google.maps.Marker({ position: mykho14 });
+            marker.setMap(map);
+              marker = new google.maps.Marker({ position: mykho15 });
+            marker.setMap(map);
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2-8b246ZDWB2uasjQfhWA4DCc2p04tTw&callback=myMap"></script>
+
+</fieldset>

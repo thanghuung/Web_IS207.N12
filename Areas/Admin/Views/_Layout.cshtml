@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>@ViewData["Title"] - Trang quản trị</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/GoTech.vn_logo.png">
+    <link rel="stylesheet" href="~/vendor/owl-carousel/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/vendor/owl-carousel/css/owl.theme.default.min.css">
+    <link href="~/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="/" class="brand-logo">
+                <p class="logo">Tech<span style="color: #be1e2d">N</span></p>
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="search_bar dropdown">
+                                <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
+                                    <i class="mdi mdi-magnify"></i>
+                                </span>
+                                <div class="dropdown-menu p-0 m-0">
+                                    <form>
+                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown notification_dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-bell"></i>
+                                    <div class="pulse-css"></div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <ul class="list-unstyled">
+                                        <li class="media dropdown-item">
+                                            <span class="success"><i class="ti-user"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p>
+                                                        <strong>Martin</strong> has added a <strong>customer</strong> Successfully
+                                                    </p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                        <li class="media dropdown-item">
+                                            <span class="primary"><i class="ti-shopping-cart"></i></span>
+                                            <div class="media-body">
+                                                <a href="#">
+                                                    <p><strong>Jennifer</strong> purchased Light Dashboard 2.0.</p>
+                                                </a>
+                                            </div>
+                                            <span class="notify-time">3:20 am</span>
+                                        </li>
+                                    </ul>
+                                    <a class="all-notification" href="#">
+                                        See all notifications <i class="ti-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <i class="mdi mdi-account"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a asp-area="Identity" asp-page="/Account/Manage/Index" class="dropdown-item">
+                                        <i class="icon-user"></i>
+                                        <span class="ml-2">Profile </span>
+                                    </a>
+                                    <a class="dropdown-item">
+                                        <i class="icon-envelope-open"></i>
+                                        <span class="ml-2">Inbox </span>
+                                    </a>
+                                    <form id="logoutForm" class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <i class="icon-key"></i>
+                                        <button id="logout" class="ml-2 " style="border: none; background-color: white;" type="submit">Logout</button>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="quixnav">
+            <div class="quixnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label first">Main Menu</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-single-04"></i><span class="nav-text">Dashboard</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="Dashboards" asp-action="Dashboard1" asp-area="Admin">Doanh thu</a></li>
+                            
+                        </ul>
+                    </li>
+                   
+                   
+                    <li class="nav-label">Bảng điều khiển</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-payment"></i><span class="nav-text">Quản lý bán hàng </span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a asp-controller="SaleManagers" asp-action="Transaction" asp-area="Admin">Tất cả giao dịch</a></li>
+                            <li><a asp-controller="SaleManagers" asp-action="ProductBill" asp-area="Admin">Đơn hàng sản phẩm </a></li>
+                            <li><a asp-controller="SaleManagers" asp-action="Shipping" asp-area="Admin">Đơn hàng đang vận chuyển</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon icon-basket"></i><span class="nav-text">Quản lý kho hàng</span>
+                        </a>
+                        <ul aria-expanded="false">
+
+                            <li>
+                                <a class="has-arrow" href="javascript:void()" aria-expanded="false">Quản lý hàng </a>
+                                <ul aria-expanded="false">
+                                    <li><a asp-controller="InventoryManagers" asp-action="Index" asp-area="Admin">Kho vận</a></li>
+                                    <li><a asp-controller="InventoryManagers" asp-action="Product" asp-area="Admin">Nhập/Xuất kho</a></li>
+                                    <li><a asp-controller="InventoryManagers" asp-action="TransProduct" asp-area="Admin">Điều chuyển hàng</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="has-arrow" href="javascript:void()" aria-expanded="false">Quản lý kho </a>
+                                <ul aria-expanded="false">
+                                    <li><a asp-controller="Products" asp-action="Index" asp-area="Admin">Sản phẩm</a></li>
+                                    <li><a asp-controller="Categories" asp-action="Index" asp-area="Admin">Danh mục</a></li>
+                                    <li><a asp-controller="Products" asp-action="Recycle" asp-area="Admin">Kho phế liệu</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                   
+                    
+                    <li class="nav-label">Content</li>
+                    <li>
+                        <a asp-controller="Chat" asp-action="ListChat" asp-area="" aria-expanded="false">
+                            <i class="icon icon-phone-2"></i><span class="nav-text">Liên hệ</span>
+                        </a>
+                    </li>
+              
+                </ul>
+                <hr />
+
+                <div class="copyright">
+                    <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Thang Huu</a> 2022</p>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+        <!--**********************************
+            Content body start
+        ***********************************-->
+
+        <div class="content-body">
+            <main role="main" class="py-4">
+                @RenderBody()
+            </main>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Thang Huu</a> 2022</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

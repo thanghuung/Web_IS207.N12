@@ -1,0 +1,347 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kolker+Brush&display=swap');
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.eot');
+    src: url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.woff') format('woff'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('https://netdna.bootstrapcdn.com/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+.layoutmain {
+    min-height: 100vh;
+}
+/*nav*/
+.topnav {
+    margin-bottom: 0rem !important;
+}
+.sub-nav {
+    position: sticky;
+    top: 0;
+    background-color: #be1e2d;
+    margin-top: -1px;
+    z-index: 2;
+}
+.sub-nav-item{
+    padding: 0px;
+}
+.sub-nav-item > ul > li > a {
+    color: white;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.sub-nav-item > ul > li > a:link {
+    color: white;
+    text-decoration: none;
+}
+    .sub-nav-item > ul > li > a:visited {
+        color: white;
+        text-decoration: none;
+    }
+    .sub-nav-item > ul > li > a:hover {
+        color: #be1e2d;
+        text-decoration: none;
+        background-color: white;
+        transition: 0.3s ease-in;
+    }
+    .sub-nav-item > ul > li > a:active {
+        color: white;
+        text-decoration: none;
+    }
+
+    .sub-nav-item > ul > li > a > i {
+        font-size: 18px;
+    }
+    .sub-nav-item > ul > li:hover {
+        transition: 1s ease-in-out;
+    }
+    .sub-nav-item > ul > li > div {
+       margin-top: 0px;
+    }
+    .sub-nav-item > ul > li:hover > div {
+        display: block;
+        position: absolute;
+        left: inherit;
+        transition: 1s ease-in-out;
+    }
+.dropdown-menu > div > ul > li > a:link {
+    text-decoration: none;
+    background-color: white;
+}
+.dropdown-menu > div > ul > li > a:hover {
+    text-decoration: none;
+    background-color: white;
+    color: #be1e2d;
+}
+.dropdown-menu > div > ul > li > a:visited {
+    text-decoration: none;
+    background-color: white;
+}
+.dropdown-menu > div > ul > li > a:active {
+    text-decoration: none;
+    background-color: white;
+}
+.dropdown-menu > div > ul > li > a:focus {
+    text-decoration: none;
+    background-color: white;
+    color: #be1e2d;
+}
+.dropdown-menu > div > ul > li > a > img {
+    border-radius: 0px !important;
+}
+.dropdown-menu > div > a:hover {
+    background-color: white;
+    color: black;
+}
+.dropdown-menu > div > a:focus {
+    background-color: white;
+    color: black;
+}
+.dropdown-menu > div > ul > li {
+    display: inline-table;
+    width: 50%;
+}
+.dropdown-menu {
+    width: fit-content;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+    .dropdown-menu > div {
+        display: inline-table;
+        padding: 10px;
+        
+    }
+/*nav*/
+.logo {
+    font-family: "Cabin", sans-serif;
+    font-size: 200%;
+    justify-content: center;
+    display: flex;
+    color: black;
+}
+
+    .logo span {
+        color: #be1e2d;
+        display: inline-block;
+    }
+        .logo {
+            display: inline-block;
+            word-wrap: normal;
+        }
+    /* Provide sufficient contrast against white background */
+    /*search*/
+    .form-control:focus {
+        box-shadow: none !important;
+        border-color: #be1e2d;
+        transition: 0.3s ease-in;
+    }
+.input-group-text {
+    background-color: #be1e2d;
+    border-color: #be1e2d;
+    color: white;
+}
+#button-addon1, #button-addon1:focus, #button-addon1:hover {
+    border: #be1e2d;
+    box-shadow: none !important;
+    color: white;
+    background-color: #be1e2d;
+}
+/*search*/
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+ 
+}
+body a{
+    color: black;
+}
+
+    /*.footer {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0px;
+    margin-top: auto;
+    color: white;
+    width: 100%;
+    white-space: nowrap;
+    background-color: black;
+    line-height: 60px
+}*/
+    .footer {
+        width: 100%;
+        white-space: normal;
+        padding: 0;
+        background-color: black;
+    }
+.sub > p {
+    color: white;
+    font-weight: bold;
+}
+    .sub > a {
+        color: #6c6f7d;
+        font-size: 15px;
+        display: block;
+    }
+.sub > a:link {
+    color: #6c6f7d;
+    text-decoration: none;
+}
+
+.sub > a:visited {
+    color: #6c6f7d;
+    text-decoration: none;
+    transition: 0.5s ease-in;
+}
+
+.sub > a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.sub > a:active {
+    color: #6c6f7d;
+    text-decoration: none;
+}
+.credit  {
+    background-color: #f1f1f1;
+}
+    .credit > .container > p {
+        display: inline-block;
+        word-wrap: break-word;
+        margin-bottom: 0px;
+        font-size: 12px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        color: black;
+        font-weight: normal;
+    }
+#btn-to-top {
+    display: inline-block;
+    background-color: transparent;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 30px;
+    right: 120px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+    #btn-to-top > svg {
+        margin: auto;
+        color: white;
+    }
+
+    #btn-to-top:after {
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 2em;
+        line-height: 50px;
+        color: #fff;
+    }
+
+    #btn-to-top:hover {
+        cursor: pointer;
+        background-color: transparent;
+    }
+
+    #btn-to-top:active {
+        background-color: transparent;
+    }
+
+    #btn-to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+#f_search .input-group-append {
+    z-index: 10;
+    align-items: center;
+    margin-left: -9.75%;
+}
+#f_search button {
+    border-radius: 100px;
+    width: 100%;
+    height: 85%;
+    text-align: center !important;
+}
+#f_search input {
+    border-radius: 30px;
+}
+#chat-bubbles {
+    display: inline-block;
+    background-color: white;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 30px;
+    right: 120px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    z-index: 1000;
+    padding: 5px;
+}
+
+    #chat-bubbles > svg {
+        margin: auto;
+        color: deepskyblue;
+    }

@@ -1,0 +1,196 @@
+﻿@model WEB2.Models.Product
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<head>
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Bạn có chắc là muốn xóa sản phẩm này?</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-action="Index">Quản lý sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a asp-action="Index">Sản phẩm</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Xóa</a></li>
+                </ol>
+            </div>
+        </div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ProductName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ProductName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UnitPrice)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.View)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.View)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Picture)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@Html.DisplayFor(model => model.Picture)" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RawPrice)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RawPrice)
+            </dd>
+ 
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ProductDetail)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ProductDetail)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MSRP)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MSRP)
+            </dd>
+        
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Version)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Version)
+            </dd>
+    
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Color)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Color)
+            </dd>
+        
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UnitInOrder)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UnitInOrder)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ReorderLevel)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ReorderLevel)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CurrentOrder)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CurrentOrder)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Note)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Note)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Category.CategoryId)
+            </dd>
+      
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Connection)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Connection.ConnId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Screen)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Screen.ScreenId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Structure)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Structure.StructId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Sound)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Sound.SoundId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Graphic)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Graphic.GraphicId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Battery)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Battery.BatteryId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Ram)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Ram.RamId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.OS)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.OS.OsId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Camera)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Camera.CamId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Processor)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Processor.CpuId)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Rom)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Rom.RomId)
+            </dd>
+        </dl>
+
+    </div>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProductId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+        <a asp-action="Index" class="btn btn-outline-dark">Trở về</a>
+    </form>
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+</body>

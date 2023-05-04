@@ -1,0 +1,194 @@
+﻿@model IEnumerable<WEB2.Models.OrderDetail>
+
+@{
+    ViewData["Title"] = "ProductBill";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ProductBill</title>
+    <!-- Datatable -->
+    <link href="~/vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href="@Url.Content("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css")" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Hi, welcome back!</h4>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Quản lý bán hàng</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Đơn hàng chờ xác nhận</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- row -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                             <h4 class="card-title"> Hóa đơn sản phẩm</h4>
+                            <div class="mt-4">
+                                <a asp-action="XuatFilePaid" class="btn btn-primary" style ="background-color:green; color: white; border: none; border-radius: 20px  "><i class="bi bi-download"></i>&nbsp;&nbsp;&nbsp;Xuất CSV</a>
+                            </div>
+                        </div>
+
+                        <div class="float-right">
+                            <form class="form-inline">
+                                <div class="form-group">
+                                    <label>Tinh trang: </label>
+                                    <select class="form-control" id="select_category">
+                                        <option value="0">ALL</option>
+                                        <option value="1" selected="selected" >Đơn hàng chờ xác nhận</option>
+                                        <option value="2">Đơn hàng đang vận chuyển</option>
+                                        <option value="3">Đơn hàng đã hoàn thành</option>
+                                        <option value="4">Đơn hàng đã hủy</option>
+                                    </select>
+                                </div>
+                            </form>
+                        
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tên</th>
+                                        <th>Đơn hàng</th>
+                                        <th>Sản phẩm</th>
+                                        <th>Số lượng</th>
+                                        <th>Tình trạng đơn hàng</th>
+                                        <th>Duyệt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model) {
+
+                                        <tr>
+                                            <td>
+                                                <div class="round-img">
+                                                    <a href=""><img width="35" src="~/images/avatar/1.png" alt=""></a>
+                                                </div>
+                                            </td>
+                                            <td>@Html.DisplayFor(model => item.Order.Customer.AppUser.FullName)</td>
+                                            <td><span>@Html.DisplayFor(model => item.OrderId)</span></td>
+                                            <td>
+                                                <span style="white-space: pre-line;
+}">
+                                                    @Html.DisplayFor(model => item.Voucher)
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span style="white-space: pre-line;
+}">
+                                                    @Html.DisplayFor(model => item.IDSKU)
+                                                </span>
+                                            </td>
+
+                                            @{
+                                                string color = "badge badge-warning";
+                                            }
+
+                                            @if (item.Order.TransactStatus.Equals("done")) {
+                                                color = "badge badge-success";
+                                            }
+                                            @if (item.Order.TransactStatus.Equals("shipping")) {
+                                                color = "badge badge-secondary";
+                                            }
+                                            @if (item.Order.TransactStatus.Equals("cancel")) {
+                                                color = "badge badge-danger";
+                                            }
+                                            @if (item.Order.TransactStatus.Equals("accept")) {
+                                                color = "badge badge-info";
+                                            }
+
+                                            <td><span class="@color">@Html.DisplayFor(model => item.Order.TransactStatus)</span></td>
+                                            @{
+                                                string status = "Xác nhận";
+                                                color = "btn btn-outline-info";
+                                                string color_can = "btn btn-danger";
+                                                string text_can = "Hủy";
+                                            }
+
+                                            @if (item.Order.TransactStatus.Equals("accept")) {
+                                                status = "vận chuyển";
+                                                color = "btn btn-outline-secondary";
+                                            }
+                                            @if (item.Order.TransactStatus.Equals("shipping")) {
+                                                status = "thanh toán";
+                                                color = "btn btn-outline-success";
+                                            }
+                                            @if (item.Order.TransactStatus.Equals("done") || item.Order.TransactStatus.Equals("cancel")) {
+                                                status = "";
+                                                color = "";
+                                                color_can = "";
+                                                text_can = "";
+                                            }
+                                            <td>
+                                                <a asp-action="Accept_T" asp-route-id="@item.OrderId" class="@color">@status</a>
+                                                <a asp-action="BillDetails_T" asp-route-id="@item.OrderId" class="btn btn-outline-primary">Chi tiết</a>
+                                                <a asp-action="BillDel_T" asp-route-id="@item.OrderId" class="@color_can">@text_can</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+
+
+                            </table>
+                            <script type="text/javascript">
+                                $("#product").val().replace(/\n/g, '<br/>');
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Required vendors -->
+    <script src="~/vendor/global/global.min.js"></script>
+    <script src="~/js/quixnav-init.js"></script>
+    <script src="~/js/custom.min.js"></script>
+
+    <!-- Datatable -->
+    <script src="~/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/plugins-init/datatables.init.js"></script>
+    <script type="text/javascript">
+         $('#select_category').change(function() {
+            var val = $(this).val();
+            if (val == 0) {
+                window.location = '/admin/salemanagers/transaction';
+            } else if (val == 1) {
+                window.location = '/admin/salemanagers/productbill';
+            }
+            else if (val == 2) {
+                window.location = '/admin/salemanagers/shipping';
+            }
+            else if (val == 3) {
+                window.location = '/admin/salemanagers/done';
+            }
+            else if (val == 4) {
+                window.location = '/admin/salemanagers/cancel';
+            }
+        });
+    </script>
+</body>
+</html>

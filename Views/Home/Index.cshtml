@@ -1,0 +1,437 @@
+﻿@model IEnumerable<WEB2.Models.Product>
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+@section Styles {
+    <link href="@Url.Content("/css/views/home/index.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css")" rel="stylesheet" type="text/css" />
+}
+<body style="background-color: white !important;">
+        <div class="sticky-side-banner" style="background-color:aqua !important">
+        <div>
+            
+            @*<div  class="side-banner-left">
+                <div class="side-banner-header">
+                    <div>
+
+                   </div>
+                </div>
+                <div class="side-banner-content">
+                    <h1>Cung<br />Chúc<br />Tân<br />Xuân<br /><img src='/img/index/webcomponent2.png' style="height: 60%; width: 60%"/></h1>        
+                </div>
+                <div class="side-banner-footer">
+                    <img src='/img/index/web_component3.png' />
+                </div>
+            </div>
+        </div>
+        <div>
+            <div  class="side-banner-right">
+                <div class="side-banner-header">
+                   <div>
+
+                   </div>
+                </div>
+                <div class="side-banner-content">
+                    <h1>Vạn<br />Sự <br />Như <br />Ý<br /><img src='/img/index/webcomponent2.png' style="height: 60%; width: 60%"/></h1>
+                </div> 
+                <div class="side-banner-footer">
+                    <img src='/img/index/web_component3.png'  style="transform: scaleX(-1);"/>
+                </div>
+            </div>*@
+        </div>
+    </div>
+   @* <div class="bottom-left-img">
+        <img src="/img/index/web_component4.png"/>
+    </div>*@
+    @*Banner  quảng cáo*@
+    @*<div class="slide">
+        <div>
+            <a href="/home/search?searchString=iphone+13">
+                                        <img class="d-block w-100" src="https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/a/r/artboard_1_copy_3_11.jpg" alt="First slide">
+            </a>
+        </div>
+        <div>
+            <a href="/home/search?searchString=galaxy+z">
+                                        <img class="d-block w-100" src="https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/s/2/s22_2.jpg" alt="Second slide">
+            </a>
+        </div>
+        <div>
+            <a href="/home/search?searchString=xiaomi+11T">
+                        <img class="d-block w-100" src="https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/x/i/xiaomi_5.png" alt="Sixth slide">
+            </a>
+        </div>
+    </div>*@
+
+    @*---*@
+    @*Khuyến mãi*@
+    <div style="background-color: #fed100; border-radius: 5px" class="khuyenmai mt-4">
+        <h4>HOTSALE</h4>
+  <div id="timer" style="display: inline-block; float:right; padding-top: 10px; padding-right: 6px;">
+            <span style="color:black; font-weight: bold">Kết thúc sau</span>
+            <div id="days"></div>
+            <div id="hours"></div>
+            <div id="minutes"></div>
+            <div id="seconds"></div>
+            <div id="log"></div>
+        </div>
+        <div class="hotsale mt-1" style="padding-left: 2.5px; padding-right: 2.5px">
+            @for (int i = 0; i < 7; i++) {
+                <div>
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.ElementAt(i).ProductId">
+                        <div class="card">
+                            <img class="card-img-top" src="@Model.ElementAt(i).Picture" alt="@Model.ElementAt(i).ProductName">
+                            <div class="card-body">
+                                <h6 class="card-title product-name">@Model.ElementAt(i).ProductName</h6>
+                                <h5 class="card-title pricesale m-0">@Model.ElementAt(i).UnitPrice</h5>
+                                <h6 class="card-title price text-muted mt-1">@Model.ElementAt(i).MSRP</h6>
+                                <div>
+                                    <p style="display:inline">
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    @*---*@
+    @*Nổi bật*@
+    <div class="container banner">
+        <a href="#">
+            <img src="https://hoanghamobile.com/Uploads/2021/10/25/iphone-13-series-pre-23423423.jpg" />
+        </a>
+        <a href="#">
+            <img src="https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/z/-/z-serries--diddongviet.jpg" />
+        </a>
+    </div>
+    <div class="phone mt-4">
+        <div class="mb-3">
+            <h4 style="color:black !important;" class="d-inline"><a asp-controller="Products" asp-action="Phone">ĐIỆN THOẠI NỔI BẬT</a></h4>
+            <div class="d-inline d-l2" style="float: right">
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="7">Apple</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="8">Samsung</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="9">Xiaomi</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="10">Vivo</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="12">Nokia</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="13">Sony</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="14">Realme</a>
+                <a class="btn" asp-controller="Products" asp-action="Phone" >Xem tất cả</a>
+            </div>
+        </div>
+
+        <div class="highlight">
+            @for (int i = 7; i < 15; i++) {
+                <div>
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.ElementAt(i).ProductId">
+                        <div class="card">
+                            <img class="card-img-top" src="@Model.ElementAt(i).Picture" alt="@Model.ElementAt(i).ProductName">
+                            <div class="card-body">
+                                <h6 class="card-title product-name">@Model.ElementAt(i).ProductName</h6>
+                                <h5 class="card-title pricesale m-0">@Model.ElementAt(i).UnitPrice</h5>
+                                <h6 class="card-title price text-muted mt-1">@Model.ElementAt(i).MSRP</h6>
+                                <div>
+                                    <p style="display:inline">
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="laptop mt-4">
+        <div class="mb-3">
+            <h4 class="d-inline"><a asp-controller="Products" asp-action="Laptop">LAPTOP NỔI BẬT</a></h4>
+            <div class="d-l2" style="float: right">
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="16">Mac</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="17">Asus</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="18">Acer</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="19">Dell</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="20">Lenovo</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="21">HP</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="22">MSI</a>
+                <a class="btn" asp-controller="Products" asp-action="Laptop">Xem tất cả</a>
+            </div>
+        </div>
+        <div class="highlight">
+            @for (int i = 15; i < 23; i++) {
+                <div>
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.ElementAt(i).ProductId">
+                        <div class="card">
+                            <img class="card-img-top" src="@Model.ElementAt(i).Picture" alt="@Model.ElementAt(i).ProductName">
+                            <div class="card-body">
+                                <h6 class="card-title product-name">@Model.ElementAt(i).ProductName</h6>
+                                <h5 class="card-title pricesale m-0">@Model.ElementAt(i).UnitPrice</h5>
+                                <h6 class="card-title price text-muted mt-1">@Model.ElementAt(i).MSRP</h6>
+                                <div>
+                                    <p style="display:inline">
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="tablet mt-4">
+        <div class="mb-3">
+            <h4 class="d-inline"><a asp-controller="Products" asp-action="Tablet">TABLET NỔI BẬT</a></h4>
+            <div class="d-l2" style="float: right">
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="23">iPad</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="24">Samsung</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="26">Huawei</a>
+                <a class="btn" asp-controller="Products" asp-action="Tablet">Xem tất cả</a>
+            </div>
+        </div>
+        <div class="highlight">
+            @for (int i = 23; i < 27; i++) {
+                <div>
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.ElementAt(i).ProductId">
+                        <div class="card">
+                            <img class="card-img-top" src="@Model.ElementAt(i).Picture" alt="@Model.ElementAt(i).ProductName">
+                            <div class="card-body">
+                                <h6 class="card-title  product-name">@Model.ElementAt(i).ProductName</h6>
+                                <h5 class="card-title pricesale m-0">@Model.ElementAt(i).UnitPrice</h5>
+                                <h6 class="card-title price text-muted mt-1">@Model.ElementAt(i).MSRP</h6>
+                                <div>
+                                    <p style="display:inline">
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="container banner">
+        <a href="#">
+            <img src="https://hoanghamobile.com/Uploads/2021/10/19/airpods-3-1200x200.jpg" />
+        </a>
+    </div>
+    <div class="sound mt-4">
+        <div class="mb-3">
+            <h4 class="d-inline"><a asp-controller="Products" asp-action="Sound">ÂM THANH</a></h4>
+            <div class="d-l2" style="float: right">
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="44">Apple</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="39">LG</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="58">Jabra</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="59">Mozard</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="60">Xiaomi</a>
+                <a class="btn" asp-controller="Products" asp-action="Category" asp-route-id="67">Belkin</a>
+                <a class="btn" asp-controller="Products" asp-action="Sound">Xem tất cả</a>
+            </div>
+        </div>
+        <div class="highlight">
+            @for (int i = 27; i < 31; i++) {
+                <div>
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.ElementAt(i).ProductId">
+                        <div class="card">
+                            <img class="card-img-top" src="@Model.ElementAt(i).Picture" alt="@Model.ElementAt(i).ProductName">
+                            <div class="card-body">
+                                <h6 class="card-title product-name">@Model.ElementAt(i).ProductName</h6>
+                                <h5 class="card-title pricesale m-0">@Model.ElementAt(i).UnitPrice</h5>
+                                <h6 class="card-title price text-muted mt-1">@Model.ElementAt(i).MSRP</h6>
+                                <div>
+                                    <p style="display:inline">
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="/accessories mt-4">
+        <div class="mb-3">
+            <h4 class="d-inline"><a asp-controller="Products" asp-action="Accessories" >PHỤ KIỆN</a></h4>
+            <div class="d-l2" style="float: right">
+               <a class="btn" id="Apple" asp-controller="Products" asp-action="Category" asp-route-id="46">Apple</a>
+               <a class="btn" id="Razer" asp-controller="Products" asp-action="Category" asp-route-id="54">Razer</a>
+               <a class="btn" id="Rapoo" asp-controller="Products" asp-action="Category" asp-route-id="61">Rapoo</a>
+               <a class="btn" id="HyperX" asp-controller="Products" asp-action="Category" asp-route-id="62">HyperX</a>
+               <a class="btn" id="Logitech" asp-controller="Products" asp-action="Category" asp-route-id="63">Logitech</a>
+               <a class="btn" id="Energizer" asp-controller="Products" asp-action="Category" asp-route-id="65">Energizer</a>
+               <a class="btn" id="Xmobile" asp-controller="Products" asp-action="Category" asp-route-id="66">Xmobile</a>
+                <a class="btn" id="Xmobile" asp-controller="Products" asp-action="Accessories" >Xem tất cả</a>
+            </div>
+        </div>
+
+        <div class="highlight">
+            @for (int i = 31; i < 35; i++) {
+                <div>
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@Model.ElementAt(i).ProductId">
+                        <div class="card">
+                            <img class="card-img-top" src="@Model.ElementAt(i).Picture" alt="@Model.ElementAt(i).ProductName">
+                            <div class="card-body">
+                                <h6 class="card-title product-name">@Model.ElementAt(i).ProductName</h6>
+                                <h5 class="card-title pricesale m-0">@Model.ElementAt(i).UnitPrice</h5>
+                                <h6 class="card-title price text-muted mt-1">@Model.ElementAt(i).MSRP</h6>
+                                <div>
+                                    <p style="display:inline">
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg>
+                                        <svg class="rating-checked bi bi-star-half" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                                        </svg>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.hotsale').slick({
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                swipe: false,
+                prevArrow: '<button type="button" class="slick-prev btn btn-danger"></box-icon></button>',
+                nextArrow: '<button type="button" class="slick-next btn btn-danger"></box-icon></button>'
+            });
+            $('.slide').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+            });
+            $(".highlight").ready(function () {
+                $(this).find(".card-body").each(function () {
+                    $(this).find(".pricesale").html(numberWithCommas($(this).find(".pricesale").text()))
+                    $(this).find(".price").html(numberWithCommas($(this).find(".price").text()))
+                })
+            })
+        });
+
+         function numberWithCommas(x) {
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return parts.join(",");
+        }
+        function countDown() {
+            var currDate = new Date();
+            var endTime = new Date(currDate.getFullYear(), currDate.getMonth(), currDate.getDate() + 2, 23, 59, 59);
+            endTime = (Date.parse(endTime) / 1000);
+            var now = new Date();
+            now = (Date.parse(now) / 1000);
+            //var endTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 24);
+
+            // $("#log").html(endTime.getHour());
+            var timeLeft = endTime - now;
+
+            var days = Math.floor(timeLeft / 86400);
+            var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+            var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600)) / 60);
+            var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+            if (days < "10") { days = "0" + days;}
+            @*if (hours > 8) { hours = 0; minutes = 0; seconds = 0; }*@
+            if (hours < "10") { hours = "0" + hours; }
+            if (minutes < "10") { minutes = "0" + minutes; }
+            if (seconds < "10") { seconds = "0" + seconds; }
+
+            $("#days").html(days);
+            $("#hours").html(hours);
+            $("#minutes").html(minutes);
+            $("#seconds").html(seconds);
+        }
+
+        setInterval(function () { countDown(); }, 1000);
+    </script>
+</body>

@@ -1,0 +1,22 @@
+﻿@model WEB2.Models.OrderDetail
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<main class="container mt-5" style="height: 50vh">
+    <style>
+        .btn:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    </style>
+<h4>Xóa sản phẩm</h4>
+
+<h5>Bạn có chắc muốn xóa sản phẩm này ?</h5>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="OrderId" />
+        <input type="hidden" asp-for="ProductId" />
+        <input type="submit" value="Xóa" class="btn btn-default" style="background-color: #be1e2d; color: white; margin-right: 10px; "  /> 
+        <a asp-action ="Index" class="btn btn-default" style="border-color: #ccc;  margin-left: 10px;">Hủy</a>
+    </form>
+</main>
